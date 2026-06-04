@@ -1,34 +1,35 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, NavLink, Navigate, useLocation } from 'react-router-dom'
+import { I18nProvider, useI18n } from './i18n/context'
 import CellDatabase from './pages/CellDatabase'
 import ExperimentSOP from './pages/ExperimentSOP'
 import PlateCalculator from './pages/PlateCalculator'
 import LabSimulator from './pages/LabSimulator'
+import UnitConverter from './pages/UnitConverter'
+import Home from './pages/Home'
+import PlateLayout from './pages/PlateLayout'
+import DataFormat from './pages/DataFormat'
+import BackToTop from './components/BackToTop'
 import SopBasics from './pages/sop/SopBasics'
 import SopRedLines from './pages/sop/SopRedLines'
 import SopAdvanced from './pages/sop/SopAdvanced'
 import SopBacteria from './pages/sop/SopBacteria'
 
-const navItems = [
-  { path: '/cell-database',    label: '细胞资料库', icon: '🧬' },
-  {
-    path: '/experiment-sop',   label: '实验 SOP',    icon: '📋',
-    children: [
-      { path: '/experiment-sop/basics',   label: '基础常识' },
-      { path: '/experiment-sop/redlines', label: '细胞特性红线' },
-      { path: '/experiment-sop/advanced', label: '进阶实验' },
-      { path: '/experiment-sop/bacteria', label: '细菌实验' },
-    ],
-  },
-  { path: '/plate-calculator', label: '铺板计算器',   icon: '🔬' },
-  { path: '/lab-simulator',    label: '实验模拟',     icon: '🎮' },
-]
-
 export default function App() {
+  return <I18nProvider><AppShell /></I18nProvider>
+}
+
+function AppShell() {
+  const { t, lang, toggleLang } = useI18n()
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [expanded, setExpanded] = useState(['/experiment-sop'])
+  const [expanded, setExpanded] = useState(() => {
+    const saved = localStorage.getItem('sidebar-expanded')
+    return saved ? JSON.parse(saved) : ['/experiment-sop']
+  })
   const [dark, setDark] = useState(() => {
-    return localStorage.getItem('theme') === 'dark'
+    const saved = localStorage.getItem('theme')
+    if (saved) return saved === 'dark'
+    return window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false
   })
   const location = useLocation()
 
@@ -37,11 +38,40 @@ export default function App() {
     localStorage.setItem('theme', dark ? 'dark' : 'light')
   }, [dark])
 
+  // Follow system theme changes
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)')
+    const handler = (e) => {
+      if (!localStorage.getItem('theme')) setDark(e.matches)
+    }
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+
   const toggleExpand = (path) => {
-    setExpanded((prev) =>
-      prev.includes(path) ? prev.filter((p) => p !== path) : [...prev, path]
-    )
+    setExpanded((prev) => {
+      const next = prev.includes(path) ? prev.filter((p) => p !== path) : [...prev, path]
+      localStorage.setItem('sidebar-expanded', JSON.stringify(next))
+      return next
+    })
   }
+
+  const navItems = [
+    { path: '/cell-database',    label: t.nav.cellDb,       icon: '🧬' },
+    { path: '/experiment-sop',   label: t.nav.experimentSop, icon: '📋',
+      children: [
+        { path: '/experiment-sop/basics',   label: t.nav.basics },
+        { path: '/experiment-sop/redlines', label: t.nav.redlines },
+        { path: '/experiment-sop/advanced', label: t.nav.advanced },
+        { path: '/experiment-sop/bacteria', label: t.nav.bacteria },
+      ],
+    },
+    { path: '/unit-converter',  label: t.nav.unitConv,     icon: '⚗️' },
+    { path: '/plate-calculator', label: t.nav.plateCalc,    icon: '🔬' },
+    { path: '/plate-layout',    label: t.nav.plateLayout,   icon: '🎨' },
+    { path: '/data-format',     label: t.nav.dataFormat,    icon: '📊' },
+    { path: '/lab-simulator',   label: t.nav.labSim,        icon: '🎮' },
+  ]
 
   return (
     <div className="flex h-screen bg-[#f5f5f7] dark:bg-[#1c1c1e] text-[#1d1d1f] dark:text-[#f5f5f7] transition-colors duration-300">
@@ -58,16 +88,24 @@ export default function App() {
           glass
           ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}
       >
-        {/* Logo + Dark toggle */}
-        <div className="px-6 py-7 flex items-center justify-between">
-          <h1 className="text-lg font-bold tracking-tight text-[#1d1d1f] dark:text-white">🧫 GOOOOOD's Lab</h1>
-          <button
-            onClick={() => setDark(!dark)}
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-base transition-all duration-200 cursor-pointer hover:bg-black/[0.05] dark:hover:bg-white/[0.08]"
-            title={dark ? '切换浅色模式' : '切换深色模式'}
-          >
-            {dark ? '☀️' : '🌙'}
+        {/* Logo + toggles */}
+        <div className="px-5 py-6 flex items-center justify-between">
+          <button onClick={() => { window.location.href = '/' }}
+            className="text-lg font-bold tracking-tight text-[#1d1d1f] dark:text-white hover:opacity-70 transition-opacity cursor-pointer">
+            🧫 {t.app.title}
           </button>
+          <div className="flex items-center gap-1">
+            <button onClick={toggleLang}
+              className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold transition-all duration-200 cursor-pointer hover:bg-black/[0.05] dark:hover:bg-white/[0.08]"
+              title={lang === 'zh' ? 'Switch to English' : '切换到中文'}>
+              {lang === 'zh' ? 'EN' : '中'}
+            </button>
+            <button onClick={() => setDark(!dark)}
+              className="w-8 h-8 rounded-lg flex items-center justify-center text-sm transition-all duration-200 cursor-pointer hover:bg-black/[0.05] dark:hover:bg-white/[0.08]"
+              title={dark ? t.common.lightMode : t.common.darkMode}>
+              {dark ? '☀️' : '🌙'}
+            </button>
+          </div>
         </div>
 
         {/* Nav */}
@@ -81,8 +119,7 @@ export default function App() {
             return (
               <div key={item.path}>
                 {item.children ? (
-                  <button
-                    onClick={() => toggleExpand(item.path)}
+                  <button onClick={() => toggleExpand(item.path)}
                     className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-[13px] font-medium transition-all duration-200 cursor-pointer text-left
                       ${isParentActive
                         ? 'text-[#0071e3] bg-[#0071e3]/6 dark:bg-[#0071e3]/15'
@@ -130,7 +167,7 @@ export default function App() {
 
         {/* Footer */}
         <div className="px-6 py-5 text-xs text-[#aeaeb2] dark:text-[#636366] font-medium">
-          Sichuan Univ · BME · 2026
+          {t.app.subtitle}
         </div>
       </aside>
 
@@ -145,19 +182,36 @@ export default function App() {
                 <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
               </svg>
             </button>
-            <span className="font-bold text-[#1d1d1f] dark:text-white">🧫 GOOOOOD's Lab</span>
+            <span className="font-bold text-[#1d1d1f] dark:text-white">🧫 {t.app.title}</span>
           </div>
-          <button
-            onClick={() => setDark(!dark)}
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-base hover:bg-black/[0.04] dark:hover:bg-white/[0.06] transition-colors cursor-pointer"
-          >
-            {dark ? '☀️' : '🌙'}
-          </button>
+          <div className="flex items-center gap-1">
+            <button onClick={toggleLang}
+              className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold hover:bg-black/[0.04] dark:hover:bg-white/[0.06] transition-colors cursor-pointer">
+              {lang === 'zh' ? 'EN' : '中'}
+            </button>
+            <button onClick={() => setDark(!dark)}
+              className="w-8 h-8 rounded-lg flex items-center justify-center text-sm hover:bg-black/[0.04] dark:hover:bg-white/[0.06] transition-colors cursor-pointer">
+              {dark ? '☀️' : '🌙'}
+            </button>
+          </div>
         </header>
 
         {/* Page content */}
         <main className="flex-1 overflow-y-auto p-5 sm:p-8 lg:p-10">
+          {/* Breadcrumb — hidden on home page */}
+          {location.pathname !== '/' && (
+            <div className="mb-4">
+              <button onClick={() => { window.location.href = '/' }}
+                className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#86868b] dark:text-[#98989d] hover:text-[#0071e3] dark:hover:text-[#5ac8fa] transition-colors cursor-pointer">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+                返回首页
+              </button>
+            </div>
+          )}
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/cell-database" element={<CellDatabase />} />
             <Route path="/experiment-sop" element={<ExperimentSOP />}>
               <Route index element={<Navigate to="/experiment-sop/basics" replace />} />
@@ -168,11 +222,14 @@ export default function App() {
             </Route>
             <Route path="/plate-calculator" element={<PlateCalculator />} />
             <Route path="/lab-simulator" element={<LabSimulator />} />
-            <Route path="/" element={<Navigate to="/cell-database" replace />} />
-            <Route path="*" element={<Navigate to="/cell-database" replace />} />
+            <Route path="/unit-converter" element={<UnitConverter />} />
+            <Route path="/plate-layout" element={<PlateLayout />} />
+            <Route path="/data-format" element={<DataFormat />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
       </div>
+      <BackToTop />
     </div>
   )
 }

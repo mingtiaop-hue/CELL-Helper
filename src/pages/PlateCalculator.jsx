@@ -98,12 +98,25 @@ function StepOne({ count, setCount, squares, setSquares, dilution, setDilution, 
    STEP 2 — PRE-MIX PLATING (DECOUPLED)
    ================================================================ */
 function StepTwo({ conc }) {
-  const [density, setDensity] = useState('5000')
-  const [plateKey, setPlateKey] = useState('96')
-  const [volPerWell, setVolPerWell] = useState(PLATES['96'].volRecommend)
-  const [wellCount, setWellCount] = useState('')
+  const [density, setDensity] = useState(() => localStorage.getItem('calc-density') || '5000')
+  const [plateKey, setPlateKey] = useState(() => localStorage.getItem('calc-plateKey') || '96')
+  const [volPerWell, setVolPerWell] = useState(() => {
+    const saved = localStorage.getItem('calc-volPerWell')
+    return saved ? parseInt(saved) : PLATES['96'].volRecommend
+  })
+  const [wellCount, setWellCount] = useState(() => localStorage.getItem('calc-wellCount') || '')
   const [showRedundancy, setShowRedundancy] = useState(false)
-  const [redundancy, setRedundancy] = useState(1.1)
+  const [redundancy, setRedundancy] = useState(() => {
+    const saved = localStorage.getItem('calc-redundancy')
+    return saved ? parseFloat(saved) : 1.1
+  })
+
+  // Persist to localStorage
+  useEffect(() => { localStorage.setItem('calc-density', density) }, [density])
+  useEffect(() => { localStorage.setItem('calc-plateKey', plateKey) }, [plateKey])
+  useEffect(() => { localStorage.setItem('calc-volPerWell', String(volPerWell)) }, [volPerWell])
+  useEffect(() => { localStorage.setItem('calc-wellCount', wellCount) }, [wellCount])
+  useEffect(() => { localStorage.setItem('calc-redundancy', String(redundancy)) }, [redundancy])
 
   const plate = PLATES[plateKey]
 
@@ -376,9 +389,19 @@ function OpCard({ num, title, accent, children }) {
    MAIN PAGE
    ================================================================ */
 export default function PlateCalculator() {
-  const [count, setCount] = useState('')
-  const [squares, setSquares] = useState(4)
-  const [dilution, setDilution] = useState(1)
+  const [count, setCount] = useState(() => localStorage.getItem('calc-count') || '')
+  const [squares, setSquares] = useState(() => {
+    const saved = localStorage.getItem('calc-squares')
+    return saved ? parseInt(saved) : 4
+  })
+  const [dilution, setDilution] = useState(() => {
+    const saved = localStorage.getItem('calc-dilution')
+    return saved ? parseFloat(saved) : 1
+  })
+
+  useEffect(() => { localStorage.setItem('calc-count', count) }, [count])
+  useEffect(() => { localStorage.setItem('calc-squares', String(squares)) }, [squares])
+  useEffect(() => { localStorage.setItem('calc-dilution', String(dilution)) }, [dilution])
 
   // Derived concentration
   const concentration = useMemo(() => {

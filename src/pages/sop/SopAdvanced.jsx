@@ -1,12 +1,25 @@
+import PageTOC from '../../components/PageTOC'
+
+const ADVANCED_TOC = [
+  { id: 'exp-cck8',      label: 'CCK-8 细胞毒性测试（浸提液法）' },
+  { id: 'exp-livedead',  label: 'Calcein-AM / PI 活死细胞双染' },
+  { id: 'exp-scratch',   label: '内皮细胞划痕迁移实验' },
+  { id: 'exp-transwell', label: 'Transwell 细胞迁移实验' },
+  { id: 'exp-lps-ros',   label: 'LPS-Raw 氧化应激实验' },
+  { id: 'exp-lps-macro', label: 'LPS 诱导巨噬细胞转化 · 外送染色' },
+]
+
 export default function SopAdvanced() {
   return (
     <div className="space-y-6">
+      <PageTOC items={ADVANCED_TOC} />
 
       {/* Experiment 1: CCK-8 Cytotoxicity */}
       <div className="bg-white dark:bg-[#2c2c2e] rounded-xl border border-slate-200 dark:border-[#48484a] shadow-sm overflow-hidden">
         <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#3a3a3c] flex items-center gap-3">
           <span className="text-xl">🧪</span>
           <div>
+            <div id="exp-cck8" className="scroll-mt-20" />
             <h3 className="font-semibold text-slate-800 dark:text-white text-sm">CCK-8 细胞毒性测试（浸提液法）</h3>
             <p className="text-xs text-slate-400 dark:text-[#98989d]">96 孔板 · L929 · 材料浸提</p>
           </div>
@@ -68,6 +81,7 @@ export default function SopAdvanced() {
         <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#3a3a3c] flex items-center gap-3">
           <span className="text-xl">🔬</span>
           <div>
+            <div id="exp-livedead" className="scroll-mt-20" />
             <h3 className="font-semibold text-slate-800 dark:text-white text-sm">Calcein-AM / PI 活死细胞双染</h3>
             <p className="text-xs text-slate-400 dark:text-[#98989d]">荧光显微镜 · 活细胞绿色 · 死细胞红色</p>
           </div>
@@ -126,6 +140,7 @@ export default function SopAdvanced() {
         <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#3a3a3c] flex items-center gap-3">
           <span className="text-xl">✂️</span>
           <div>
+            <div id="exp-scratch" className="scroll-mt-20" />
             <h3 className="font-semibold text-slate-800 dark:text-white text-sm">内皮细胞划痕迁移实验</h3>
             <p className="text-xs text-slate-400 dark:text-[#98989d]">12 孔板 · HUVEC · 明场拍摄</p>
           </div>
@@ -160,6 +175,7 @@ export default function SopAdvanced() {
         <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#3a3a3c] flex items-center gap-3">
           <span className="text-xl">🏃</span>
           <div>
+            <div id="exp-transwell" className="scroll-mt-20" />
             <h3 className="font-semibold text-slate-800 dark:text-white text-sm">Transwell 细胞迁移实验</h3>
             <p className="text-xs text-slate-400 dark:text-[#98989d]">24 孔板 · 8 μm 小室 · 结晶紫染色</p>
           </div>
@@ -207,6 +223,7 @@ export default function SopAdvanced() {
         <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#3a3a3c] flex items-center gap-3">
           <span className="text-xl">🦠</span>
           <div>
+            <div id="exp-lps-ros" className="scroll-mt-20" />
             <h3 className="font-semibold text-slate-800 dark:text-white text-sm">LPS-Raw 氧化应激实验</h3>
             <p className="text-xs text-slate-400 dark:text-[#98989d]">96 孔板 · 共聚焦拍摄 · ROS 检测</p>
           </div>

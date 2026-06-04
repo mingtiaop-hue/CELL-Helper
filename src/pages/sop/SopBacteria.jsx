@@ -1,8 +1,20 @@
+import PageTOC from '../../components/PageTOC'
+
+const BACTERIA_TOC = [
+  { id: 'bac-media',    label: '培养基配置与灭菌' },
+  { id: 'bac-od',       label: '细菌复苏与 OD 值测定' },
+  { id: 'bac-mic',      label: 'MIC 最低抑菌浓度测定' },
+  { id: 'bac-adhesion', label: '细菌粘附实验' },
+  { id: 'bac-biofilm',  label: '生物膜培养 · 结晶紫染色 · CLSM' },
+  { id: 'bac-livedead', label: '细菌活死染色（荧光显微镜）' },
+]
+
 export default function SopBacteria() {
   return (
     <div className="space-y-5">
+      <PageTOC items={BACTERIA_TOC} />
       {/* 1. 培养基配置 */}
-      <Card title="🧫 培养基配置与灭菌" accent="blue">
+      <Card id="bac-media" title="🧫 培养基配置与灭菌" accent="blue">
         <div className="space-y-3 text-sm text-slate-700 dark:text-[#f5f5f7]">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-3">
@@ -28,7 +40,7 @@ export default function SopBacteria() {
       </Card>
 
       {/* 2. 细菌复苏与OD值测定 */}
-      <Card title="🦠 细菌复苏与 OD 值测定" accent="green">
+      <Card id="bac-od" title="🦠 细菌复苏与 OD 值测定" accent="green">
         <div className="space-y-4 text-sm text-slate-700 dark:text-[#f5f5f7]">
           {/* 复苏 */}
           <div>
@@ -71,7 +83,7 @@ export default function SopBacteria() {
       </Card>
 
       {/* 3. MIC 最低抑菌浓度 */}
-      <Card title="🔬 MIC 最低抑菌浓度测定" accent="purple">
+      <Card id="bac-mic" title="🔬 MIC 最低抑菌浓度测定" accent="purple">
         <div className="space-y-4 text-sm text-slate-700 dark:text-[#f5f5f7]">
           <div>
             <h4 className="font-semibold text-slate-800 dark:text-white mb-2">实验准备</h4>
@@ -128,7 +140,7 @@ export default function SopBacteria() {
       </Card>
 
       {/* 4. 细菌粘附实验 */}
-      <Card title="🧽 细菌粘附实验" accent="orange">
+      <Card id="bac-adhesion" title="🧽 细菌粘附实验" accent="orange">
         <div className="space-y-3 text-sm text-slate-700 dark:text-[#f5f5f7]">
           <div className="flex items-center gap-2 text-xs text-slate-400 dark:text-[#98989d] mb-2">
             <span className="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full font-medium">三天实验</span>
@@ -166,7 +178,7 @@ export default function SopBacteria() {
       </Card>
 
       {/* 5. 生物膜培养与结晶紫染色 */}
-      <Card title="🎨 生物膜培养 · 结晶紫染色 · CLSM" accent="red">
+      <Card id="bac-biofilm" title="🎨 生物膜培养 · 结晶紫染色 · CLSM" accent="red">
         <div className="space-y-4 text-sm text-slate-700 dark:text-[#f5f5f7]">
 
           <Section num="1" title="生物膜培养">
@@ -205,7 +217,7 @@ export default function SopBacteria() {
       </Card>
 
       {/* 6. 细菌活死染色 */}
-      <Card title="🔬 细菌活死染色（荧光显微镜）" accent="cyan">
+      <Card id="bac-livedead" title="🔬 细菌活死染色（荧光显微镜）" accent="cyan">
         <div className="space-y-3 text-sm text-slate-700 dark:text-[#f5f5f7]">
           <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-sm text-amber-800">
             ⚠️ <strong>全程注意避光操作。</strong>
@@ -224,7 +236,7 @@ export default function SopBacteria() {
 
 /* ======== Reusable Components ======== */
 
-function Card({ title, accent = 'blue', children }) {
+function Card({ title, accent = 'blue', id, children }) {
   const borders = {
     blue: 'border-l-blue-500', green: 'border-l-green-500',
     amber: 'border-l-amber-500', purple: 'border-l-purple-500',
@@ -232,7 +244,7 @@ function Card({ title, accent = 'blue', children }) {
     cyan: 'border-l-cyan-500',
   }
   return (
-    <div className={`bg-white dark:bg-[#2c2c2e] rounded-xl border border-slate-200 dark:border-[#48484a] shadow-sm overflow-hidden border-l-4 ${borders[accent] || 'border-l-blue-500'}`}>
+    <div id={id} className={`scroll-mt-20 bg-white dark:bg-[#2c2c2e] rounded-xl border border-slate-200 dark:border-[#48484a] shadow-sm overflow-hidden border-l-4 ${borders[accent] || 'border-l-blue-500'}`}>
       <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#3a3a3c]">
         <h3 className="font-semibold text-slate-800 dark:text-white text-sm">{title}</h3>
       </div>
