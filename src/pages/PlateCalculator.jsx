@@ -28,14 +28,14 @@ function StepOne({ count, setCount, squares, setSquares, dilution, setDilution, 
       <div className="flex items-center gap-3 mb-6">
         <span className="text-2xl">🔢</span>
         <div>
-          <h3 className="font-semibold text-[17px] text-[#1d1d1f] tracking-tight">
+          <h3 className="font-semibold text-[17px] text-[#1d1d1f] dark:text-white dark:text-white tracking-tight">
             血球计数板 · 浓度换算
           </h3>
-          <p className="text-[14px] text-[#86868b] mt-0.5">
+          <p className="text-[14px] text-[#86868b] dark:text-[#98989d] mt-0.5">
             手打计数器 → 显微镜计数 → 出浓度
           </p>
         </div>
-        <span className="ml-auto text-[14px] font-semibold text-[#86868b] bg-black/[0.04] px-2.5 py-1 rounded-full">
+        <span className="ml-auto text-[14px] font-semibold text-[#86868b] dark:text-[#98989d] bg-black/[0.04] dark:bg-white dark:bg-[#2c2c2e]/[0.06] px-2.5 py-1 rounded-full">
           STEP 1
         </span>
       </div>
@@ -57,26 +57,26 @@ function StepOne({ count, setCount, squares, setSquares, dilution, setDilution, 
           placeholder="4"
         />
         <div>
-          <label className="block text-[14px] font-medium text-[#1d1d1f]/80 mb-1.5">
+          <label className="block text-[14px] font-medium text-[#1d1d1f] dark:text-white/80 dark:text-white/80 mb-1.5">
             悬液稀释倍数
           </label>
           <select
             value={dilution}
             onChange={(e) => setDilution(parseFloat(e.target.value))}
-            className="w-full rounded-xl border border-black/10 bg-[#f5f5f7] px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all duration-200 appearance-none"
+            className="w-full rounded-xl border border-black/10 dark:border-white/10 bg-[#f5f5f7] dark:bg-[#2c2c2e] px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all duration-200 appearance-none"
           >
             {[1, 1.5, 2, 5, 10, 20, 50, 100].map((v) => (
               <option key={v} value={v}>{v}×{v === 1 ? '（不稀释）' : ''}</option>
             ))}
           </select>
-          <p className="text-[14px] text-[#aeaeb2] mt-1.5 leading-relaxed">
+          <p className="text-[14px] text-[#aeaeb2] dark:text-[#636366] mt-1.5 leading-relaxed">
             例：取 10μL 悬液 + 90μL 培养基混匀后计数 → 填 10
           </p>
         </div>
       </div>
 
       {/* Formula */}
-      <div className="mt-4 bg-[#f5f5f7] rounded-xl px-4 py-2.5 text-xs text-[#86868b] font-mono tracking-tight">
+      <div className="mt-4 bg-[#f5f5f7] dark:bg-[#2c2c2e] rounded-xl px-4 py-2.5 text-xs text-[#86868b] dark:text-[#98989d] font-mono tracking-tight">
         浓度 = (总数 ÷ 大格数) × 10⁴ × 稀释倍数
       </div>
 
@@ -84,27 +84,27 @@ function StepOne({ count, setCount, squares, setSquares, dilution, setDilution, 
       <div className={`mt-5 rounded-2xl px-6 py-5 text-center transition-all duration-500 ease-out ${
         conc && conc > 0
           ? 'bg-gradient-to-br from-[#0071e3]/6 to-[#0071e3]/2 ring-1 ring-[#0071e3]/15'
-          : 'bg-[#f5f5f7]'
+          : 'bg-[#f5f5f7] dark:bg-[#2c2c2e]'
       }`}>
-        <div className="text-[14px] font-semibold text-[#86868b] uppercase tracking-wider mb-2">
+        <div className="text-[14px] font-semibold text-[#86868b] dark:text-[#98989d] uppercase tracking-wider mb-2">
           当前细胞悬液浓度
         </div>
         {conc && conc > 0 ? (
           <div className="number-transition">
-            <span className="text-4xl font-bold text-[#0071e3] tracking-tight">
+            <span className="text-4xl font-bold text-[#0071e3] dark:text-[#5ac8fa] tracking-tight">
               {(conc / 1e4).toFixed(2)}
             </span>
-            <span className="text-[#0071e3]/70 font-medium ml-1.5 text-base">×10⁴ cells/mL</span>
-            <div className="text-sm text-[#86868b] mt-1 font-mono">
+            <span className="text-[#0071e3] dark:text-[#5ac8fa]/ dark:text-[#5ac8fa]/70 font-medium ml-1.5 text-base">×10⁴ cells/mL</span>
+            <div className="text-sm text-[#86868b] dark:text-[#98989d] mt-1 font-mono">
               = {conc.toLocaleString()} cells/mL
             </div>
-            <div className="mt-3 flex items-center justify-center gap-1.5 text-[14px] text-[#0071e3]/60 font-medium animate-fade-in-up">
+            <div className="mt-3 flex items-center justify-center gap-1.5 text-[14px] text-[#0071e3] dark:text-[#5ac8fa]/ dark:text-[#5ac8fa]/60 font-medium animate-fade-in-up">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
               已同步至第二步
             </div>
           </div>
         ) : (
-          <span className="text-[#aeaeb2] text-base font-medium">输入上方数据自动计算</span>
+          <span className="text-[#aeaeb2] dark:text-[#636366] text-base font-medium">输入上方数据自动计算</span>
         )}
       </div>
     </div>
@@ -164,20 +164,20 @@ function StepTwo({ conc }) {
       <div className="flex items-center gap-3 mb-6">
         <span className="text-2xl">🧪</span>
         <div>
-          <h3 className="font-semibold text-[17px] text-[#1d1d1f] tracking-tight">
+          <h3 className="font-semibold text-[17px] text-[#1d1d1f] dark:text-white dark:text-white tracking-tight">
             预混液铺板计算
           </h3>
-          <p className="text-[14px] text-[#86868b] mt-0.5">
+          <p className="text-[14px] text-[#86868b] dark:text-[#98989d] mt-0.5">
             离心管预混 → 排枪分装
           </p>
         </div>
-        <span className="ml-auto text-[14px] font-semibold text-[#86868b] bg-black/[0.04] px-2.5 py-1 rounded-full">
+        <span className="ml-auto text-[14px] font-semibold text-[#86868b] dark:text-[#98989d] bg-black/[0.04] dark:bg-white dark:bg-[#2c2c2e]/[0.06] px-2.5 py-1 rounded-full">
           STEP 2
         </span>
       </div>
 
       {/* Connection from Step 1 */}
-      <div className="flex items-center gap-3 mb-6 text-[14px] text-[#86868b]">
+      <div className="flex items-center gap-3 mb-6 text-[14px] text-[#86868b] dark:text-[#98989d]">
         <div className="flex-1 h-px bg-black/[0.06]" />
         <span className="flex-shrink-0">
           {conc && conc > 0
@@ -191,8 +191,8 @@ function StepTwo({ conc }) {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
         {/* 1. Cell density */}
         <div>
-          <label className="block text-[14px] font-medium text-[#1d1d1f]/80 mb-2">
-            目标细胞密度 <span className="font-normal text-[#aeaeb2]">(cells/孔)</span>
+          <label className="block text-[14px] font-medium text-[#1d1d1f] dark:text-white/80 dark:text-white/80 mb-2">
+            目标细胞密度 <span className="font-normal text-[#aeaeb2] dark:text-[#636366]">(cells/孔)</span>
           </label>
           {/* Quick chips */}
           <div className="flex flex-wrap gap-1.5 mb-2.5">
@@ -202,8 +202,8 @@ function StepTwo({ conc }) {
                 onClick={() => handleChip(chip.value)}
                 className={`px-2.5 py-1 rounded-lg text-[14px] font-medium transition-all duration-200 cursor-pointer
                   ${String(chip.value) === density
-                    ? 'bg-[#0071e3] text-white shadow-sm'
-                    : 'bg-[#f5f5f7] text-[#1d1d1f]/60 hover:bg-black/[0.06] hover:text-[#1d1d1f]'
+                    ? 'bg-[#0071e3] text-white dark:text-white shadow-sm'
+                    : 'bg-[#f5f5f7] dark:bg-[#2c2c2e] text-[#1d1d1f] dark:text-white/60 hover:bg-black/[0.06] hover:text-[#1d1d1f] dark:hover:text-white dark:text-white dark:text-white'
                   }`}
               >
                 {chip.label} <span className="opacity-70">{chip.value.toLocaleString()}</span>
@@ -214,27 +214,27 @@ function StepTwo({ conc }) {
             type="number" value={density}
             onChange={(e) => setDensity(e.target.value)}
             placeholder="手动输入"
-            className="w-full rounded-xl border border-black/10 bg-[#f5f5f7] px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all duration-200"
+            className="w-full rounded-xl border border-black/10 dark:border-white/10 bg-[#f5f5f7] dark:bg-[#2c2c2e] px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all duration-200"
           />
         </div>
 
         {/* 2. Plate type + volume */}
         <div>
-          <label className="block text-[14px] font-medium text-[#1d1d1f]/80 mb-2">孔板类型</label>
+          <label className="block text-[14px] font-medium text-[#1d1d1f] dark:text-white/80 dark:text-white/80 mb-2">孔板类型</label>
           <select
             value={plateKey}
             onChange={(e) => handlePlateChange(e.target.value)}
-            className="w-full rounded-xl border border-black/10 bg-[#f5f5f7] px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all duration-200 appearance-none mb-2.5"
+            className="w-full rounded-xl border border-black/10 dark:border-white/10 bg-[#f5f5f7] dark:bg-[#2c2c2e] px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all duration-200 appearance-none mb-2.5"
           >
             {Object.entries(PLATES).map(([k, v]) => (
               <option key={k} value={k}>{v.label}（推荐 {v.volRecommend} μL/孔）</option>
             ))}
           </select>
-          <label className="block text-[14px] font-medium text-[#86868b] mb-1">单孔加液体积 (μL)</label>
+          <label className="block text-[14px] font-medium text-[#86868b] dark:text-[#98989d] mb-1">单孔加液体积 (μL)</label>
           <input
             type="number" value={volPerWell}
             onChange={(e) => setVolPerWell(e.target.value === '' ? '' : parseInt(e.target.value))}
-            className="w-full rounded-xl border border-black/10 bg-[#f5f5f7] px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all duration-200"
+            className="w-full rounded-xl border border-black/10 dark:border-white/10 bg-[#f5f5f7] dark:bg-[#2c2c2e] px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all duration-200"
           />
         </div>
 
@@ -250,7 +250,7 @@ function StepTwo({ conc }) {
           {/* Collapsible redundancy */}
           <button
             onClick={() => setShowRedundancy(!showRedundancy)}
-            className="mt-3 text-[14px] text-[#86868b] hover:text-[#1d1d1f] transition-colors cursor-pointer flex items-center gap-1"
+            className="mt-3 text-[14px] text-[#86868b] dark:text-[#98989d] hover:text-[#1d1d1f] dark:hover:text-white dark:text-white dark:text-white dark:text-white transition-colors cursor-pointer flex items-center gap-1"
           >
             <svg className={`w-3 h-3 transition-transform duration-200 ${showRedundancy ? 'rotate-90' : ''}`}
               fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path d="M9 5l7 7-7 7"/></svg>
@@ -262,9 +262,9 @@ function StepTwo({ conc }) {
                 type="range" min={1.0} max={1.5} step={0.05}
                 value={redundancy}
                 onChange={(e) => setRedundancy(parseFloat(e.target.value))}
-                className="flex-1 h-1.5 bg-[#e5e5ea] rounded-full accent-[#0071e3] cursor-pointer"
+                className="flex-1 h-1.5 bg-[#e5e5ea] dark:bg-[#48484a] rounded-full accent-[#0071e3] cursor-pointer"
               />
-              <span className="text-xs font-semibold text-[#1d1d1f] w-8 text-right">{redundancy.toFixed(1)}×</span>
+              <span className="text-xs font-semibold text-[#1d1d1f] dark:text-white dark:text-white w-8 text-right">{redundancy.toFixed(1)}×</span>
             </div>
           )}
         </div>
@@ -272,15 +272,15 @@ function StepTwo({ conc }) {
 
       {/* ======== RESULT ======== */}
       {!conc || conc <= 0 ? (
-        <div className="bg-[#f5f5f7] rounded-2xl px-6 py-10 text-center">
+        <div className="bg-[#f5f5f7] dark:bg-[#2c2c2e] rounded-2xl px-6 py-10 text-center">
           <span className="text-4xl block mb-3">⬆️</span>
-          <p className="text-sm text-[#86868b] font-medium">请先在第一步完成血球计数</p>
-          <p className="text-xs text-[#aeaeb2] mt-1">浓度数据将自动传递到此处</p>
+          <p className="text-sm text-[#86868b] dark:text-[#98989d] font-medium">请先在第一步完成血球计数</p>
+          <p className="text-xs text-[#aeaeb2] dark:text-[#636366] mt-1">浓度数据将自动传递到此处</p>
         </div>
       ) : !result ? (
-        <div className="bg-[#f5f5f7] rounded-2xl px-6 py-10 text-center">
+        <div className="bg-[#f5f5f7] dark:bg-[#2c2c2e] rounded-2xl px-6 py-10 text-center">
           <span className="text-4xl block mb-3">📝</span>
-          <p className="text-sm text-[#86868b] font-medium">请填写目标密度、孔板类型和孔数</p>
+          <p className="text-sm text-[#86868b] dark:text-[#98989d] font-medium">请填写目标密度、孔板类型和孔数</p>
         </div>
       ) : !result.valid ? (
         <div className="bg-[#ff3b30]/5 border border-[#ff3b30]/15 rounded-2xl px-5 py-4 text-sm text-[#ff3b30] font-medium">
@@ -297,18 +297,18 @@ function StepTwo({ conc }) {
           </div>
 
           {/* Operation cards */}
-          <div className="bg-gradient-to-br from-[#f5f5f7] to-white rounded-2xl ring-1 ring-black/[0.04] overflow-hidden">
-            <div className="px-5 py-3.5 border-b border-black/[0.04]">
-              <h4 className="font-semibold text-sm text-[#1d1d1f] tracking-tight">
+          <div className="bg-gradient-to-br from-[#f5f5f7] to-white rounded-2xl ring-1 ring-black/[0.04] dark:ring-white/[0.06] overflow-hidden">
+            <div className="px-5 py-3.5 border-b border-black/[0.04] dark:border-white/[0.06]">
+              <h4 className="font-semibold text-sm text-[#1d1d1f] dark:text-white dark:text-white tracking-tight">
                 📋 预混液铺板操作卡
               </h4>
             </div>
             <div className="p-5 space-y-3">
               <OpCard num="❶" title="准备离心管" accent="bg-[#0071e3]">
                 取无菌离心管，加入{' '}
-                <strong className="text-[#0071e3]">{result.mediumVol.toFixed(1)} μL</strong>{' '}
+                <strong className="text-[#0071e3] dark:text-[#5ac8fa]">{result.mediumVol.toFixed(1)} μL</strong>{' '}
                 新鲜培养基。
-                <div className="text-[14px] text-[#aeaeb2] mt-0.5">
+                <div className="text-[14px] text-[#aeaeb2] dark:text-[#636366] mt-0.5">
                   = 总量 {result.totalVol.toFixed(1)} μL − 悬液 {result.stockVol.toFixed(1)} μL
                 </div>
               </OpCard>
@@ -317,7 +317,7 @@ function StepTwo({ conc }) {
                 将计数后的原悬液充分吹打均匀，准确吸取{' '}
                 <strong className="text-[#34c759]">{result.stockVol.toFixed(1)} μL</strong>{' '}
                 加入管中。
-                <div className="text-[14px] text-[#aeaeb2] mt-0.5">
+                <div className="text-[14px] text-[#aeaeb2] dark:text-[#636366] mt-0.5">
                   = {result.totalCells.toLocaleString()} cells ÷ {conc.toLocaleString()} cells/mL × 10⁶
                 </div>
               </OpCard>
@@ -325,7 +325,7 @@ function StepTwo({ conc }) {
               <OpCard num="❸" title="混匀 · 排枪分装" accent="bg-[#ff9f0a]">
                 轻柔吹打混匀配成预混液，使用<strong>排枪</strong>向每孔加入{' '}
                 <strong className="text-[#ff9f0a]">{result.perWellVol} μL</strong>。
-                <div className="text-[14px] text-[#aeaeb2] mt-0.5">
+                <div className="text-[14px] text-[#aeaeb2] dark:text-[#636366] mt-0.5">
                   预混液总体积 {result.totalVol.toFixed(1)} μL · 可铺 {wellCount} 孔
                   {redundancy > 1 && `（含 ${Math.ceil(parseInt(wellCount) * (redundancy - 1))} 孔冗余）`}
                 </div>
@@ -349,13 +349,13 @@ function StepTwo({ conc }) {
 function InputGroup({ label, sub, value, onChange, placeholder }) {
   return (
     <div>
-      <label className="block text-[14px] font-medium text-[#1d1d1f]/80 mb-1.5">
-        {label} {sub && <span className="font-normal text-[#aeaeb2]">({sub})</span>}
+      <label className="block text-[14px] font-medium text-[#1d1d1f] dark:text-white/80 dark:text-white/80 mb-1.5">
+        {label} {sub && <span className="font-normal text-[#aeaeb2] dark:text-[#636366]">({sub})</span>}
       </label>
       <input
         type="number" value={value} onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full rounded-xl border border-black/10 bg-[#f5f5f7] px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all duration-200"
+        className="w-full rounded-xl border border-black/10 dark:border-white/10 bg-[#f5f5f7] dark:bg-[#2c2c2e] px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 focus:border-[#0071e3] transition-all duration-200"
         inputMode="numeric"
       />
     </div>
@@ -365,26 +365,26 @@ function InputGroup({ label, sub, value, onChange, placeholder }) {
 function StatBox({ value, unit, label, accent }) {
   return (
     <div className={`rounded-2xl p-3.5 text-center transition-all duration-300 ${
-      accent ? 'bg-[#0071e3]/5 ring-1 ring-[#0071e3]/10' : 'bg-[#f5f5f7]'
+      accent ? 'bg-[#0071e3]/5 dark:bg-[#0071e3]/15 ring-1 ring-[#0071e3]/10' : 'bg-[#f5f5f7] dark:bg-[#2c2c2e]'
     }`}>
-      <div className={`text-lg font-bold tracking-tight number-transition ${accent ? 'text-[#0071e3]' : 'text-[#1d1d1f]'}`}>
+      <div className={`text-lg font-bold tracking-tight number-transition ${accent ? 'text-[#0071e3] dark:text-[#5ac8fa]' : 'text-[#1d1d1f] dark:text-white'}`}>
         {value}{unit && <span className="text-xs font-medium opacity-50 ml-0.5">{unit}</span>}
       </div>
-      <div className="text-[14px] text-[#86868b] mt-0.5 font-medium">{label}</div>
+      <div className="text-[14px] text-[#86868b] dark:text-[#98989d] mt-0.5 font-medium">{label}</div>
     </div>
   )
 }
 
 function OpCard({ num, title, accent, children }) {
   return (
-    <div className="bg-white rounded-2xl p-4 ring-1 ring-black/[0.03] hover:ring-black/[0.06] transition-all duration-200">
+    <div className="bg-white dark:bg-[#2c2c2e] rounded-2xl p-4 ring-1 ring-black/[0.03] dark:ring-white/[0.05] hover:ring-black/[0.06] transition-all duration-200">
       <div className="flex items-center gap-2.5 mb-1.5">
-        <span className={`w-5 h-5 rounded-full ${accent} text-white text-[14px] font-bold flex items-center justify-center flex-shrink-0`}>
+        <span className={`w-5 h-5 rounded-full ${accent} text-white dark:text-white text-[14px] font-bold flex items-center justify-center flex-shrink-0`}>
           {num}
         </span>
-        <span className="font-semibold text-[14px] text-[#1d1d1f] tracking-tight">{title}</span>
+        <span className="font-semibold text-[14px] text-[#1d1d1f] dark:text-white dark:text-white tracking-tight">{title}</span>
       </div>
-      <p className="text-[14px] text-[#1d1d1f]/70 ml-[30px]">{children}</p>
+      <p className="text-[14px] text-[#1d1d1f] dark:text-white/70 dark:text-white/70 ml-[30px]">{children}</p>
     </div>
   )
 }
@@ -408,8 +408,8 @@ export default function PlateCalculator() {
   return (
     <div className="max-w-3xl mx-auto">
       <div className="mb-8">
-        <h2 className="text-[32px] font-bold text-[#1d1d1f] tracking-tight">铺板计算器</h2>
-        <p className="mt-1.5 text-[16px] text-[#86868b] font-medium">
+        <h2 className="text-[32px] font-bold text-[#1d1d1f] dark:text-white dark:text-white tracking-tight">铺板计算器</h2>
+        <p className="mt-1.5 text-[16px] text-[#86868b] dark:text-[#98989d] font-medium">
           血球计数板计数 → 预混液配液 → 排枪铺板
         </p>
       </div>

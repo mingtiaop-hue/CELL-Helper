@@ -4,7 +4,7 @@ const cells = [
     media: 'DMEM + 10% FBS + 1% 双抗',
     confluence: '8×10⁶ – 1×10⁷', passage: '80%–90% 融合',
     traits: ['贴壁极速', '增殖快', 'CCK-8 / 活死染'],
-    accent: 'from-[#0071e3] to-[#5ac8fa]', badgeBg: 'bg-[#0071e3]/8 text-[#0071e3]',
+    accent: 'from-[#0071e3] to-[#5ac8fa]', badgeBg: 'bg-[#0071e3]/8 dark:bg-[#0071e3]/20 text-[#0071e3] dark:text-[#5ac8fa]',
     warning: null,
   },
   {
@@ -12,7 +12,7 @@ const cells = [
     media: 'DMEM + 10% FBS + 1% 双抗',
     confluence: '~1×10⁷', passage: '70%–80% 融合',
     traits: ['贴壁较松', '刮刀代胰酶', 'LPS → M1 极化'],
-    accent: 'from-[#ff9f0a] to-[#ffcc00]', badgeBg: 'bg-[#ff9f0a]/8 text-[#ff9f0a]',
+    accent: 'from-[#ff9f0a] to-[#ffcc00]', badgeBg: 'bg-[#ff9f0a]/8 dark:bg-[#ff9f0a]/20 text-[#ff9f0a]',
     warning: { icon: '🚫', label: '严禁使用胰酶', detail: '胰酶会切割 TLR4/CD14 受体，破坏 LPS 炎症应答功能。仅推荐细胞刮刀、EDTA 或轻柔吹打。' },
   },
   {
@@ -20,7 +20,7 @@ const cells = [
     media: 'ECM + 5% FBS + 1% ECGS + 1% 双抗',
     confluence: '3×10⁶ – 5×10⁶', passage: '85%–95% 融合',
     traits: ['娇贵', '划痕/血管生成', '胰酶 ≤1 min'],
-    accent: 'from-[#34c759] to-[#30d158]', badgeBg: 'bg-[#34c759]/8 text-[#34c759]',
+    accent: 'from-[#34c759] to-[#30d158]', badgeBg: 'bg-[#34c759]/8 dark:bg-[#34c759]/20 text-[#34c759]',
     warning: { icon: '⚠️', label: '胰酶严格控制 ≤1 min', detail: '超时消化导致 eNOS、VE-cadherin 表达下降。推荐 0.05% 低浓度胰酶，镜下实时监控。' },
   },
 ]
@@ -35,8 +35,8 @@ export default function CellDatabase() {
   return (
     <div className="max-w-5xl mx-auto">
       <div className="mb-10">
-        <h2 className="text-[32px] font-bold text-[#1d1d1f] tracking-tight">细胞资料库</h2>
-        <p className="mt-1.5 text-[16px] text-[#86868b] font-medium">
+        <h2 className="text-[32px] font-bold text-[#1d1d1f] dark:text-white dark:text-white tracking-tight">细胞资料库</h2>
+        <p className="mt-1.5 text-[16px] text-[#86868b] dark:text-[#98989d] font-medium">
           实验室常用细胞系 · 培养条件与消化红线
         </p>
       </div>
@@ -49,7 +49,7 @@ export default function CellDatabase() {
             <div className={`h-2 bg-gradient-to-r ${c.accent}`} />
             <div className="px-5 pt-4 pb-5">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-lg font-bold text-[#1d1d1f] tracking-tight">{c.name}</h3>
+                <h3 className="text-lg font-bold text-[#1d1d1f] dark:text-white dark:text-white tracking-tight">{c.name}</h3>
                 <span className={`text-[13px] font-semibold px-2.5 py-0.5 rounded-full ${c.badgeBg}`}>
                   {c.fullName}
                 </span>
@@ -57,26 +57,26 @@ export default function CellDatabase() {
 
               <div className="space-y-3">
                 <div>
-                  <div className="text-[14px] font-semibold text-[#aeaeb2] uppercase tracking-wider mb-0.5">培养基</div>
-                  <div className="text-[13px] text-[#1d1d1f]/80 leading-relaxed">{c.media}</div>
+                  <div className="text-[14px] font-semibold text-[#aeaeb2] dark:text-[#636366] uppercase tracking-wider mb-0.5">培养基</div>
+                  <div className="text-[13px] text-[#1d1d1f] dark:text-white/80 dark:text-white/80 leading-relaxed">{c.media}</div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <div className="text-[14px] font-semibold text-[#aeaeb2] uppercase tracking-wider mb-0.5">10cm 皿满度</div>
-                    <div className="text-[13px] font-semibold text-[#1d1d1f]">{c.confluence}</div>
+                    <div className="text-[14px] font-semibold text-[#aeaeb2] dark:text-[#636366] uppercase tracking-wider mb-0.5">10cm 皿满度</div>
+                    <div className="text-[13px] font-semibold text-[#1d1d1f] dark:text-white">{c.confluence}</div>
                   </div>
                   <div>
-                    <div className="text-[14px] font-semibold text-[#aeaeb2] uppercase tracking-wider mb-0.5">传代时机</div>
-                    <div className="text-[13px] font-semibold text-[#1d1d1f]">{c.passage}</div>
+                    <div className="text-[14px] font-semibold text-[#aeaeb2] dark:text-[#636366] uppercase tracking-wider mb-0.5">传代时机</div>
+                    <div className="text-[13px] font-semibold text-[#1d1d1f] dark:text-white">{c.passage}</div>
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-[14px] font-semibold text-[#aeaeb2] uppercase tracking-wider mb-1.5">特性与用途</div>
+                  <div className="text-[14px] font-semibold text-[#aeaeb2] dark:text-[#636366] uppercase tracking-wider mb-1.5">特性与用途</div>
                   <div className="flex flex-wrap gap-1.5">
                     {c.traits.map((t) => (
-                      <span key={t} className="text-[13px] px-2.5 py-1 rounded-lg bg-[#f5f5f7] text-[#1d1d1f]/70 font-medium">
+                      <span key={t} className="text-[13px] px-2.5 py-1 rounded-lg bg-[#f5f5f7] dark:bg-[#2c2c2e] text-[#1d1d1f] dark:text-white/70 dark:text-white/70 font-medium">
                         {t}
                       </span>
                     ))}
@@ -100,26 +100,26 @@ export default function CellDatabase() {
 
       {/* Digest table */}
       <div className="apple-card p-5 sm:p-6">
-        <h3 className="font-semibold text-[16px] text-[#1d1d1f] tracking-tight mb-4">消化方法速查</h3>
+        <h3 className="font-semibold text-[16px] text-[#1d1d1f] dark:text-white dark:text-white tracking-tight mb-4">消化方法速查</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="text-left border-b border-black/[0.04]">
-                <th className="pb-3 text-[13px] font-semibold text-[#aeaeb2] uppercase tracking-wider">细胞系</th>
-                <th className="pb-3 text-[13px] font-semibold text-[#aeaeb2] uppercase tracking-wider">推荐方法</th>
-                <th className="pb-3 text-[13px] font-semibold text-[#aeaeb2] uppercase tracking-wider">禁忌</th>
+              <tr className="text-left border-b border-black/[0.04] dark:border-white/[0.06]">
+                <th className="pb-3 text-[13px] font-semibold text-[#aeaeb2] dark:text-[#636366] uppercase tracking-wider">细胞系</th>
+                <th className="pb-3 text-[13px] font-semibold text-[#aeaeb2] dark:text-[#636366] uppercase tracking-wider">推荐方法</th>
+                <th className="pb-3 text-[13px] font-semibold text-[#aeaeb2] dark:text-[#636366] uppercase tracking-wider">禁忌</th>
               </tr>
             </thead>
             <tbody>
               {digestTable.map((r) => (
-                <tr key={r.name} className="border-b border-black/[0.02] last:border-0">
-                  <td className="py-3 text-[13px] font-semibold text-[#1d1d1f]">{r.name}</td>
+                <tr key={r.name} className="border-b border-black/[0.02] dark:border-white/[0.04] last:border-0">
+                  <td className="py-3 text-[13px] font-semibold text-[#1d1d1f] dark:text-white">{r.name}</td>
                   <td className="py-3">
-                    <span className="text-[13px] font-medium bg-[#34c759]/8 text-[#34c759] px-2.5 py-1 rounded-full">
+                    <span className="text-[13px] font-medium bg-[#34c759]/8 dark:bg-[#34c759]/20 text-[#34c759] px-2.5 py-1 rounded-full">
                       {r.method}
                     </span>
                   </td>
-                  <td className={`py-3 text-[13px] font-medium ${r.forbidRed ? 'text-[#ff3b30]' : 'text-[#86868b]'}`}>
+                  <td className={`py-3 text-[13px] font-medium ${r.forbidRed ? 'text-[#ff3b30]' : 'text-[#86868b] dark:text-[#98989d]'}`}>
                     {r.forbid}
                   </td>
                 </tr>

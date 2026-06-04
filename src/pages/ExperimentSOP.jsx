@@ -12,12 +12,12 @@ export default function ExperimentSOP() {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-slate-900">📋 实验 SOP</h2>
-        <p className="mt-1 text-sm text-slate-500">标准化实验操作流程 · 实验室独家规范</p>
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">📋 实验 SOP</h2>
+        <p className="mt-1 text-sm text-slate-500 dark:text-[#98989d]">标准化实验操作流程 · 实验室独家规范</p>
       </div>
 
       {/* Sub-nav tabs */}
-      <div className="flex flex-wrap gap-1.5 mb-6 p-1 bg-slate-100 rounded-xl">
+      <div className="flex flex-wrap gap-1.5 mb-6 p-1 bg-slate-100 dark:bg-[#3a3a3c] rounded-xl">
         {tabs.map((tab) => {
           const isActive = location.pathname === tab.path
           return (
@@ -26,8 +26,8 @@ export default function ExperimentSOP() {
               to={tab.path}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-100 ${
                 isActive
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-slate-500 hover:text-slate-700 hover:bg-white/60'
+                  ? 'bg-white dark:bg-[#2c2c2e] text-slate-900 dark:text-white dark:text-white shadow-sm'
+                  : 'text-slate-500 dark:text-[#98989d] hover:text-slate-700 dark:text-[#f5f5f7] hover:bg-white dark:bg-[#2c2c2e]/60'
               }`}
             >
               {tab.label}

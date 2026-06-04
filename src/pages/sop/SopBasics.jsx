@@ -8,7 +8,7 @@ export default function SopBasics() {
             <Row label="DMEM 基础培养基" value="450 mL" />
             <Row label="胎牛血清 (FBS)" value="50 mL" />
             <Row label="双抗 (青霉素-链霉素)" value="5 mL" />
-            <Row label={<span className="font-semibold text-slate-800">总体积</span>} value={<span className="font-bold text-blue-700">500 mL</span>} />
+            <Row label={<span className="font-semibold text-slate-800 dark:text-white">总体积</span>} value={<span className="font-bold text-blue-700">500 mL</span>} />
           </tbody>
         </table>
         <Tip>FBS 需 56°C 灭活 30 min 后使用。配制在超净台内完成，严格无菌操作。</Tip>
@@ -16,9 +16,9 @@ export default function SopBasics() {
 
       {/* 2. 换液频率 */}
       <Card title="🔄 换液频率" accent="green">
-        <div className="text-sm text-slate-700 space-y-2">
+        <div className="text-sm text-slate-700 dark:text-[#f5f5f7] space-y-2">
           <p>常规维持：<strong>每 2–3 天更换一次培养基</strong></p>
-          <ul className="list-disc list-inside space-y-1 text-slate-600">
+          <ul className="list-disc list-inside space-y-1 text-slate-600 dark:text-[#aeaeb2]">
             <li>培养基颜色由红变黄（pH 下降）时需立即换液</li>
             <li>换液前 37°C 预热新鲜培养基</li>
             <li>弃旧液 → PBS 轻柔润洗 → 沿壁缓慢加入新培养基</li>
@@ -33,25 +33,25 @@ export default function SopBasics() {
             <strong>⏱ 生长速率：</strong>一天增加约 <strong>1.8 倍</strong> · 约 <strong>400 万</strong> 细胞即长满 · <strong>3–4 天</strong> 需分皿
           </div>
 
-          <ol className="space-y-2.5 text-sm text-slate-700">
+          <ol className="space-y-2.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
             <li className="flex gap-2.5">
-              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-400 text-white text-xs font-bold flex items-center justify-center mt-0.5">1</span>
+              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-400 text-white dark:text-white text-xs font-bold flex items-center justify-center mt-0.5">1</span>
               <span>吸除旧培养基（不要触碰细胞层）</span>
             </li>
             <li className="flex gap-2.5">
-              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-400 text-white text-xs font-bold flex items-center justify-center mt-0.5">2</span>
+              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-400 text-white dark:text-white text-xs font-bold flex items-center justify-center mt-0.5">2</span>
               <span><strong>1 mL PBS</strong> 轻柔冲洗细胞层，去除残留血清和死细胞</span>
             </li>
             <li className="flex gap-2.5">
-              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-400 text-white text-xs font-bold flex items-center justify-center mt-0.5">3</span>
+              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-400 text-white dark:text-white text-xs font-bold flex items-center justify-center mt-0.5">3</span>
               <span><strong>1 mL 胰酶</strong> 消化（37°C，1–2 分钟至细胞变圆、轻拍皿壁即脱落）</span>
             </li>
             <li className="flex gap-2.5">
-              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-400 text-white text-xs font-bold flex items-center justify-center mt-0.5">4</span>
+              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-400 text-white dark:text-white text-xs font-bold flex items-center justify-center mt-0.5">4</span>
               <span>加入含血清培养基终止消化，轻柔吹打至单细胞悬液</span>
             </li>
             <li className="flex gap-2.5">
-              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-400 text-white text-xs font-bold flex items-center justify-center mt-0.5">5</span>
+              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-400 text-white dark:text-white text-xs font-bold flex items-center justify-center mt-0.5">5</span>
               <span>按比例分皿，补液至 <strong>培养瓶 5–7 mL</strong> / <strong>培养皿 8–9 mL</strong></span>
             </li>
           </ol>
@@ -61,7 +61,7 @@ export default function SopBasics() {
 
       {/* 4. 细胞计数法 */}
       <Card title="🔢 细胞计数法（血球计数板）" accent="blue">
-        <div className="space-y-2 text-sm text-slate-700">
+        <div className="space-y-2 text-sm text-slate-700 dark:text-[#f5f5f7]">
           <ol className="space-y-1.5">
             <li className="flex gap-2"><span className="text-blue-600 font-bold">①</span> 消化吹匀后，吸取 <strong>10 μL</strong> 细胞悬液，沿盖玻片边缘注入血球计数板</li>
             <li className="flex gap-2"><span className="text-blue-600 font-bold">②</span> 显微镜下统计 <strong>四周四个大格</strong>（每个大格含 16 小格）的细胞数</li>
@@ -78,7 +78,7 @@ export default function SopBasics() {
 
       {/* 5. 冻存与复苏 */}
       <Card title="❄️ 细胞冻存规范" accent="purple">
-        <div className="space-y-3 text-sm text-slate-700">
+        <div className="space-y-3 text-sm text-slate-700 dark:text-[#f5f5f7]">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="bg-purple-50 border border-purple-200 rounded-lg px-4 py-3">
               <div className="font-semibold text-purple-800 mb-1">冻存液配方</div>
@@ -106,7 +106,7 @@ export default function SopBasics() {
       </Card>
 
       <Card title="🔥 细胞复苏规范" accent="orange">
-        <div className="space-y-2.5 text-sm text-slate-700">
+        <div className="space-y-2.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
           <ol className="space-y-1.5">
             <li className="flex gap-2"><span className="text-orange-500 font-bold">①</span> 从液氮/-80°C 取出冻存管，立即投入 <strong>37°C 水浴</strong></li>
             <li className="flex gap-2"><span className="text-orange-500 font-bold">②</span> 快速摇动，<strong>1–2 分钟内完全融化</strong>（残留少量冰晶即取出）</li>
@@ -133,9 +133,9 @@ export default function SopBasics() {
 function Card({ title, accent = 'blue', children }) {
   const borders = { blue: 'border-l-blue-500', green: 'border-l-green-500', amber: 'border-l-amber-500', purple: 'border-l-purple-500', orange: 'border-l-orange-500', red: 'border-l-red-500' }
   return (
-    <div className={`bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden border-l-4 ${borders[accent] || 'border-l-blue-500'}`}>
-      <div className="px-5 py-3.5 border-b border-slate-100">
-        <h3 className="font-semibold text-slate-800 text-sm">{title}</h3>
+    <div className={`bg-white dark:bg-[#2c2c2e] rounded-xl border border-slate-200 dark:border-[#48484a] shadow-sm overflow-hidden border-l-4 ${borders[accent] || 'border-l-blue-500'}`}>
+      <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#3a3a3c]">
+        <h3 className="font-semibold text-slate-800 dark:text-white dark:text-white text-sm">{title}</h3>
       </div>
       <div className="px-5 py-4">{children}</div>
     </div>
@@ -145,15 +145,15 @@ function Card({ title, accent = 'blue', children }) {
 function Row({ label, value }) {
   return (
     <tr>
-      <td className="py-2.5 pr-4 text-slate-600">{label}</td>
-      <td className="py-2.5 font-medium text-slate-800 text-right">{value}</td>
+      <td className="py-2.5 pr-4 text-slate-600 dark:text-[#aeaeb2]">{label}</td>
+      <td className="py-2.5 font-medium text-slate-800 dark:text-white dark:text-white text-right">{value}</td>
     </tr>
   )
 }
 
 function Tip({ children }) {
   return (
-    <div className="mt-3 flex gap-2 text-xs text-slate-500 bg-slate-50 rounded-lg px-3 py-2">
+    <div className="mt-3 flex gap-2 text-xs text-slate-500 dark:text-[#98989d] bg-slate-50 dark:bg-[#2c2c2e] rounded-lg px-3 py-2">
       <span className="flex-shrink-0">💡</span>
       <span>{children}</span>
     </div>

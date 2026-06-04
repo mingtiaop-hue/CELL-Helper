@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 /* ================================================================
+   CLASS-BASED DARK MODE (toggle, not system preference)
+   ================================================================ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ================================================================
    APPLE-LIKE GLOBAL STYLES
    ================================================================ */
-:root {
-  --glass-bg: rgba(255, 255, 255, 0.72);
-  --glass-border: rgba(0, 0, 0, 0.04);
-}
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Noto Sans SC", "Segoe UI", sans-serif;
@@ -18,14 +18,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scrollbar — thin, subtle */
+/* Scrollbar */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #d2d2d7; border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: #aeaeb2; }
 
 /* ================================================================
-   GLASS / BLUR UTILITIES
+   GLASS
    ================================================================ */
 .glass {
   background: rgba(255, 255, 255, 0.72);
@@ -57,7 +57,7 @@ body {
 }
 
 /* ================================================================
-   NUMBER TRANSITION — smooth value change
+   NUMBER TRANSITION
    ================================================================ */
 .number-transition {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -111,3 +111,37 @@ body {
 .animate-slide-in-left   { animation: slide-in-left 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 .animate-fade-in-up      { animation: fade-in-up 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
 .animate-scale-in        { animation: scale-in 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* ================================================================
+   DARK MODE — Apple Dark (overrides custom classes)
+   ================================================================ */
+.dark body {
+  background: #1c1c1e;
+  color: #f5f5f7;
+}
+.dark ::-webkit-scrollbar-thumb { background: #48484a; }
+.dark ::-webkit-scrollbar-thumb:hover { background: #636366; }
+
+.dark .glass {
+  background: rgba(44, 44, 46, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dark .apple-card {
+  background: #2c2c2e;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.dark .apple-card:hover {
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.3);
+}
+.dark .apple-card-raised {
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    0 12px 32px rgba(0, 0, 0, 0.35);
+}

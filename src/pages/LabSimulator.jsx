@@ -16,10 +16,10 @@ const SCENARIOS = [
         title: '放入爬片，接种 RAW264.7',
         content: (
           <div className="space-y-3">
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
               在超净台内，用无菌镊子将<strong>细胞爬片</strong>放入 24 孔板底部，确保爬片与孔底贴合无气泡。
             </p>
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
               按铺板计算器算出的体积，用移液器吸取 RAW264.7 细胞悬液，轻柔注入孔内，十字摇匀。
             </p>
             <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-sm text-amber-800">
@@ -33,7 +33,7 @@ const SCENARIOS = [
       {
         title: '等待细胞贴壁',
         content: (
-          <p className="text-slate-600 leading-relaxed">
+          <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
             将 24 孔板放入 37°C / 5% CO₂ 培养箱，等待 RAW264.7 贴壁。<strong>预计需要 24 小时。</strong>
           </p>
         ),
@@ -44,16 +44,16 @@ const SCENARIOS = [
         title: '加 LPS 与材料共刺激',
         content: (
           <div className="space-y-3">
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
               从培养箱取出孔板，<strong>吸弃旧培养基</strong>（勿触碰爬片）。
             </p>
-            <div className="bg-slate-100 rounded-lg px-4 py-3 text-sm">
-              <div className="font-semibold text-slate-700 mb-1">LPS 工作液</div>
-              <code className="text-xs text-slate-600 bg-slate-200 px-2 py-0.5 rounded">
+            <div className="bg-slate-100 dark:bg-[#3a3a3c] rounded-lg px-4 py-3 text-sm">
+              <div className="font-semibold text-slate-700 dark:text-[#f5f5f7] mb-1">LPS 工作液</div>
+              <code className="text-xs text-slate-600 dark:text-[#aeaeb2] bg-slate-200 dark:bg-[#48484a] px-2 py-0.5 rounded">
                 LPS 10 mg/mL → 稀释 20,000× → 500 ng/mL（无血清培养基，避光）
               </code>
             </div>
-            <p className="text-slate-600">每孔加入 LPS 稀释液 + 测试材料（无血清体系）。</p>
+            <p className="text-slate-600 dark:text-[#aeaeb2]">每孔加入 LPS 稀释液 + 测试材料（无血清体系）。</p>
           </div>
         ),
         checklist: [
@@ -65,7 +65,7 @@ const SCENARIOS = [
       {
         title: '药物刺激孵育',
         content: (
-          <p className="text-slate-600 leading-relaxed">
+          <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
             将孔板放回培养箱，LPS + 材料共孵育 <strong>24 小时</strong>，诱导巨噬细胞 M1 极化。
           </p>
         ),
@@ -76,7 +76,7 @@ const SCENARIOS = [
         title: '多聚甲醛固定',
         content: (
           <div className="space-y-3">
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
               吸弃上清，加入<strong className="text-red-700">预冷多聚甲醛 (4°C)</strong>，完全覆盖爬片。
             </p>
             <div className="bg-red-50 border-2 border-red-300 rounded-xl px-4 py-3 text-sm text-red-800">
@@ -94,10 +94,10 @@ const SCENARIOS = [
         title: 'PBS 洗涤 · 准备送样',
         content: (
           <div className="space-y-3">
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
               吸弃 PFA，沿孔壁加入 PBS <strong>轻柔洗涤 3 次</strong>（枪头贴壁，勿冲击爬片）。
             </p>
-            <p className="text-slate-600">最后一次保留<strong>薄层 PBS</strong>覆盖爬片，防止干燥。</p>
+            <p className="text-slate-600 dark:text-[#aeaeb2]">最后一次保留<strong>薄层 PBS</strong>覆盖爬片，防止干燥。</p>
             <div className="bg-emerald-50 border border-emerald-200 rounded-lg px-4 py-3 text-sm text-emerald-800">
               📍 <strong>送样地址：</strong>天府科技园 B2 栋
             </div>
@@ -123,10 +123,10 @@ const SCENARIOS = [
         title: '接种 L929 细胞',
         content: (
           <div className="space-y-3">
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
               取对数生长期 L929，消化计数后调整至 <strong>5×10⁴ cells/mL</strong>。
             </p>
-            <p className="text-slate-600">96 孔板每孔加入 <strong>100 μL</strong> 细胞悬液（即 <strong>5,000 cells/孔</strong>）。</p>
+            <p className="text-slate-600 dark:text-[#aeaeb2]">96 孔板每孔加入 <strong>100 μL</strong> 细胞悬液（即 <strong>5,000 cells/孔</strong>）。</p>
             <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-sm text-amber-800">
               💡 <strong>关键步骤：</strong>边缘一圈孔（A1–A12, H1–H12, A1–H1, A12–H12）不加细胞，只加 <strong>100 μL PBS</strong> 作防蒸发屏障。
             </div>
@@ -141,7 +141,7 @@ const SCENARIOS = [
       {
         title: '等待细胞贴壁',
         content: (
-          <p className="text-slate-600 leading-relaxed">
+          <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
             将 96 孔板放入培养箱，等待 L929 贴壁。<strong>预计需要 24 小时</strong>，细胞应达到 70–80% 融合。
           </p>
         ),
@@ -152,7 +152,7 @@ const SCENARIOS = [
         title: '加入材料浸提液',
         content: (
           <div className="space-y-3">
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
               显微镜下确认细胞已贴壁。吸弃旧培养基。
             </p>
             <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 text-sm">
@@ -171,7 +171,7 @@ const SCENARIOS = [
       {
         title: '材料共孵育',
         content: (
-          <p className="text-slate-600 leading-relaxed">
+          <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
             将 96 孔板放回培养箱，待测材料与 L929 细胞 <strong>共孵育 24 小时</strong>。
           </p>
         ),
@@ -182,7 +182,7 @@ const SCENARIOS = [
         title: '加入 CCK-8 试剂',
         content: (
           <div className="space-y-3">
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
               每孔加入 <strong>10 μL CCK-8 试剂</strong>（即培养基体积的 10%），轻轻拍板混匀。
             </p>
             <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-sm text-amber-800">
@@ -200,10 +200,10 @@ const SCENARIOS = [
         title: '孵育显色 · 测吸光度',
         content: (
           <div className="space-y-3">
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
               将孔板放回培养箱，<strong>避光孵育 1–4 小时</strong>，颜色变为橙色-棕色即可。
             </p>
-            <p className="text-slate-600">酶标仪 <strong>450 nm</strong> 测吸光度 (OD)。参考波长 630 nm 扣除背景。</p>
+            <p className="text-slate-600 dark:text-[#aeaeb2]">酶标仪 <strong>450 nm</strong> 测吸光度 (OD)。参考波长 630 nm 扣除背景。</p>
             <div className="bg-emerald-50 border border-emerald-200 rounded-lg px-4 py-3 text-sm text-emerald-800">
               <strong>细胞活力 (%) = (OD_sample − OD_blank) / (OD_control − OD_blank) × 100%</strong>
             </div>
@@ -226,10 +226,10 @@ const SCENARIOS = [
         title: '吸弃旧液 · PBS 洗涤',
         content: (
           <div className="space-y-3">
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
               显微镜下确认细胞融合度达到传代标准（L929: 80–90%，RAW264.7: 70–80%，HUVEC: 85–95%）。
             </p>
-            <p className="text-slate-600">吸弃旧培养基，加入 <strong>1 mL PBS</strong> 轻柔润洗，去除死细胞和残留血清。</p>
+            <p className="text-slate-600 dark:text-[#aeaeb2]">吸弃旧培养基，加入 <strong>1 mL PBS</strong> 轻柔润洗，去除死细胞和残留血清。</p>
           </div>
         ),
         checklist: [
@@ -253,7 +253,7 @@ const SCENARIOS = [
               tip: '贴壁牢固，使用 0.25% 胰酶-EDTA 消化',
               content: (
                 <div className="space-y-2">
-                  <p className="text-slate-600">加入 <strong>1 mL 0.25% 胰酶-EDTA</strong>，37°C 孵育。</p>
+                  <p className="text-slate-600 dark:text-[#aeaeb2]">加入 <strong>1 mL 0.25% 胰酶-EDTA</strong>，37°C 孵育。</p>
                   <div className="bg-green-50 border border-green-200 rounded-lg px-4 py-3 text-sm text-green-800">
                     ✅ 1–2 分钟后细胞变圆、轻拍皿壁即脱落 → 加入含血清培养基终止消化。
                   </div>
@@ -266,7 +266,7 @@ const SCENARIOS = [
               tip: '贴壁但娇贵，使用 0.05% 低浓度胰酶',
               content: (
                 <div className="space-y-2">
-                  <p className="text-slate-600">加入 <strong>1 mL 0.05% 胰酶</strong>（低浓度），37°C 消化。</p>
+                  <p className="text-slate-600 dark:text-[#aeaeb2]">加入 <strong>1 mL 0.05% 胰酶</strong>（低浓度），37°C 消化。</p>
                   <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-sm text-amber-800">
                     ⚠️ <strong>严格控制 ≤60 秒！</strong>镜下实时观察，80% 变圆立刻终止，否则内皮功能受损。
                   </div>
@@ -305,9 +305,9 @@ const SCENARIOS = [
               <div className="font-semibold text-amber-800 mb-1">⏱ 生长速率参考</div>
               <p className="text-amber-700">一天约增加 <strong>1.8 倍</strong> · 约 400 万细胞长满 · <strong>3–4 天</strong> 需再次分皿</p>
             </div>
-            <p className="text-slate-600">终止消化后轻柔吹打为单细胞悬液，按 <strong>1:2 – 1:4</strong> 比例分至新皿。</p>
-            <p className="text-slate-600">补液至 <strong>培养瓶 5–7 mL</strong> / <strong>培养皿 8–9 mL</strong>，十字摇匀。</p>
-            <p className="text-slate-600">标记细胞名称、代次、日期，放入 37°C / 5% CO₂ 培养箱。</p>
+            <p className="text-slate-600 dark:text-[#aeaeb2]">终止消化后轻柔吹打为单细胞悬液，按 <strong>1:2 – 1:4</strong> 比例分至新皿。</p>
+            <p className="text-slate-600 dark:text-[#aeaeb2]">补液至 <strong>培养瓶 5–7 mL</strong> / <strong>培养皿 8–9 mL</strong>，十字摇匀。</p>
+            <p className="text-slate-600 dark:text-[#aeaeb2]">标记细胞名称、代次、日期，放入 37°C / 5% CO₂ 培养箱。</p>
           </div>
         ),
         checklist: [
@@ -348,7 +348,7 @@ function FastForwardOverlay({ label, time, onDone }) {
       <div className="text-white/50 text-sm font-medium">快进中 · {time}</div>
 
       {/* Progress bar */}
-      <div className="w-48 h-1.5 bg-white/15 rounded-full overflow-hidden">
+      <div className="w-48 h-1.5 bg-white dark:bg-[#2c2c2e]/15 rounded-full overflow-hidden">
         <div
           className="h-full bg-gradient-to-r from-[#0071e3] to-[#5ac8fa] rounded-full transition-all duration-100 ease-linear"
           style={{ width: `${progress}%` }}
@@ -447,8 +447,8 @@ export default function LabSimulator() {
     <div className="max-w-2xl mx-auto">
       {/* Header */}
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-slate-900">🎮 沉浸式实验模拟</h2>
-        <p className="mt-1 text-sm text-slate-500">交互式 SOP · 防呆清单 · 时间快进</p>
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">🎮 沉浸式实验模拟</h2>
+        <p className="mt-1 text-sm text-slate-500 dark:text-[#98989d]">交互式 SOP · 防呆清单 · 时间快进</p>
       </div>
 
       {/* ======== SCENARIO SELECTOR ======== */}
@@ -459,14 +459,14 @@ export default function LabSimulator() {
             onClick={() => switchScenario(i)}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-[13px] font-medium transition-all duration-200 cursor-pointer ${
               i === scenarioIdx
-                ? 'bg-[#1d1d1f] text-white shadow-md scale-[1.01]'
-                : 'bg-white/80 text-[#1d1d1f]/60 hover:bg-white hover:text-[#1d1d1f] ring-1 ring-black/[0.04]'
+                ? 'bg-[#1d1d1f] text-white dark:text-white shadow-md scale-[1.01]'
+                : 'bg-white dark:bg-[#2c2c2e]/80 text-[#1d1d1f] dark:text-white/60 hover:bg-white dark:bg-[#2c2c2e] hover:text-[#1d1d1f] dark:hover:text-white dark:text-white dark:text-white dark:text-white ring-1 ring-black/[0.04] dark:ring-white/[0.06]'
             }`}
           >
             <span>{s.icon}</span>
             <span className="hidden sm:inline">{s.title}</span>
             <span className="sm:hidden">{s.badge}</span>
-            <span className={`text-xs px-2 py-0.5 rounded-full ${i === scenarioIdx ? 'bg-white/20 text-white' : s.badgeColor}`}>
+            <span className={`text-xs px-2 py-0.5 rounded-full ${i === scenarioIdx ? 'bg-white dark:bg-[#2c2c2e]/20 text-white' : s.badgeColor}`}>
               {s.badge}
             </span>
           </button>
@@ -483,15 +483,15 @@ export default function LabSimulator() {
                   i < current
                     ? 'bg-emerald-500 border-emerald-500 text-white'
                     : i === current
-                      ? 'bg-white border-blue-600 text-blue-700 shadow-lg shadow-blue-200 scale-110'
-                      : 'bg-white border-slate-200 text-slate-400'
+                      ? 'bg-white dark:bg-[#2c2c2e] border-blue-600 text-blue-700 shadow-lg shadow-blue-200 scale-110'
+                      : 'bg-white dark:bg-[#2c2c2e] border-slate-200 dark:border-[#48484a] text-slate-400 dark:text-[#98989d]'
                 }`}
               >
                 {i < current ? '✓' : i + 1}
               </div>
             </div>
             {i < scenario.steps.length - 1 && (
-              <div className={`flex-1 h-0.5 mx-0.5 rounded transition-colors duration-300 ${i < current ? 'bg-emerald-400' : 'bg-slate-200'}`} />
+              <div className={`flex-1 h-0.5 mx-0.5 rounded transition-colors duration-300 ${i < current ? 'bg-emerald-400' : 'bg-slate-200 dark:bg-[#48484a]'}`} />
             )}
           </div>
         ))}
@@ -517,7 +517,7 @@ export default function LabSimulator() {
                   )}
                 </div>
               </div>
-              <span className="text-[13px] font-semibold bg-white/20 px-2.5 py-1 rounded-full flex-shrink-0">
+              <span className="text-[13px] font-semibold bg-white dark:bg-[#2c2c2e]/20 px-2.5 py-1 rounded-full flex-shrink-0">
                 {current + 1}/{scenario.steps.length}
               </span>
             </div>
@@ -528,7 +528,7 @@ export default function LabSimulator() {
             {/* Decision branch */}
             {step.decision ? (
               <div className="space-y-3">
-                <p className="text-sm font-semibold text-slate-700">{step.decision.prompt}</p>
+                <p className="text-sm font-semibold text-slate-700 dark:text-[#f5f5f7]">{step.decision.prompt}</p>
                 {step.decision.options.map((opt) => {
                   const selected = decision === opt.id
                   return (
@@ -540,18 +540,18 @@ export default function LabSimulator() {
                           ? opt.id === 'raw'
                             ? 'border-red-500 bg-red-50 shadow-md'
                             : 'border-blue-500 bg-blue-50 shadow-md'
-                          : 'border-slate-200 bg-white hover:border-slate-300'
+                          : 'border-slate-200 dark:border-[#48484a] bg-white dark:bg-[#2c2c2e] hover:border-slate-300 dark:border-[#636366]'
                       }`}
                     >
                       <div className="flex items-center justify-between mb-1">
-                        <span className="font-semibold text-sm text-slate-800">{opt.label}</span>
+                        <span className="font-semibold text-sm text-slate-800 dark:text-white">{opt.label}</span>
                         {selected && (
                           <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${opt.id === 'raw' ? 'bg-red-600 text-white' : 'bg-blue-600 text-white'}`}>
                             已选择
                           </span>
                         )}
                       </div>
-                      <p className="text-xs text-slate-500">{opt.tip}</p>
+                      <p className="text-xs text-slate-500 dark:text-[#98989d]">{opt.tip}</p>
                       {selected && opt.content && (
                         <div className="mt-3">{opt.content}</div>
                       )}
@@ -566,8 +566,8 @@ export default function LabSimulator() {
 
             {/* Checklist */}
             {step.checklist.length > 0 && (
-              <div className="bg-slate-50 rounded-xl px-4 py-3.5">
-                <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2.5">
+              <div className="bg-slate-50 dark:bg-[#2c2c2e] rounded-xl px-4 py-3.5">
+                <div className="text-xs font-semibold text-slate-500 dark:text-[#98989d] uppercase tracking-wide mb-2.5">
                   ✅ 前置确认清单
                 </div>
                 <div className="space-y-2">
@@ -575,12 +575,12 @@ export default function LabSimulator() {
                     <label
                       key={c.id}
                       className={`flex items-center gap-3 p-2.5 rounded-lg border cursor-pointer transition-all ${
-                        checked[c.id] ? 'bg-emerald-50 border-emerald-300' : 'bg-white border-slate-200 hover:border-slate-300'
+                        checked[c.id] ? 'bg-emerald-50 border-emerald-300' : 'bg-white dark:bg-[#2c2c2e] border-slate-200 dark:border-[#48484a] hover:border-slate-300 dark:border-[#636366]'
                       }`}
                     >
                       <input type="checkbox" checked={!!checked[c.id]} onChange={() => toggleCheck(c.id)}
                         className="w-4 h-4 rounded accent-emerald-600 cursor-pointer flex-shrink-0" />
-                      <span className={`text-sm ${checked[c.id] ? 'text-emerald-800 font-medium' : 'text-slate-700'}`}>
+                      <span className={`text-sm ${checked[c.id] ? 'text-emerald-800 font-medium' : 'text-slate-700 dark:text-[#f5f5f7]'}`}>
                         {checked[c.id] ? '✓ ' : ''}{c.label}
                       </span>
                     </label>
@@ -597,36 +597,36 @@ export default function LabSimulator() {
                   disabled={!allChecked || !decisionDone}
                   className={`px-6 py-3 rounded-xl font-bold text-sm transition-all cursor-pointer ${
                     allChecked && decisionDone
-                      ? 'bg-amber-500 text-white hover:bg-amber-600 active:scale-95 shadow-lg shadow-amber-200 animate-pulse'
-                      : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                      ? 'bg-amber-500 text-white dark:text-white hover:bg-amber-600 active:scale-95 shadow-lg shadow-amber-200 animate-pulse'
+                      : 'bg-slate-200 dark:bg-[#48484a] text-slate-400 dark:text-[#98989d] cursor-not-allowed'
                   }`}
                 >
                   ⏳ 点击快进 — {step.fastForward.time}
                 </button>
                 {!allChecked && (
-                  <p className="text-xs text-slate-400 mt-1.5">请先完成上方清单</p>
+                  <p className="text-xs text-slate-400 dark:text-[#98989d] mt-1.5">请先完成上方清单</p>
                 )}
               </div>
             )}
           </div>
 
           {/* Card footer */}
-          <div className="px-6 py-4 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between">
+          <div className="px-6 py-4 border-t border-slate-100 dark:border-[#3a3a3c] bg-slate-50 dark:bg-[#2c2c2e]/50 flex items-center justify-between">
             <button onClick={goPrev} disabled={isFirst || animating}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                isFirst ? 'text-slate-300 cursor-not-allowed' : 'text-slate-600 hover:bg-slate-200 active:scale-95 cursor-pointer'
+                isFirst ? 'text-slate-300 dark:text-[#48484a] cursor-not-allowed' : 'text-slate-600 dark:text-[#aeaeb2] hover:bg-slate-200 dark:hover:bg-[#48484a] dark:bg-[#48484a] active:scale-95 cursor-pointer'
               }`}>
               ← 上一步
             </button>
 
-            <span className="text-xs text-slate-400">{current + 1}/{scenario.steps.length}</span>
+            <span className="text-xs text-slate-400 dark:text-[#98989d]">{current + 1}/{scenario.steps.length}</span>
 
             {isLast ? (
               <button onClick={reset} disabled={!canAdvance}
                 className={`px-5 py-2 rounded-lg text-sm font-bold transition-all cursor-pointer ${
                   canAdvance
-                    ? 'bg-emerald-600 text-white hover:bg-emerald-700 active:scale-95 shadow-lg shadow-emerald-200'
-                    : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                    ? 'bg-emerald-600 text-white dark:text-white hover:bg-emerald-700 active:scale-95 shadow-lg shadow-emerald-200'
+                    : 'bg-slate-200 dark:bg-[#48484a] text-slate-400 dark:text-[#98989d] cursor-not-allowed'
                 }`}>
                 🎉 完成实验
               </button>
@@ -635,8 +635,8 @@ export default function LabSimulator() {
               <button onClick={goNext} disabled={!canAdvance}
                 className={`px-5 py-2 rounded-lg text-sm font-bold transition-all cursor-pointer ${
                   canAdvance
-                    ? 'bg-blue-600 text-white hover:bg-blue-700 active:scale-95 shadow-lg shadow-blue-200'
-                    : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                    ? 'bg-blue-600 text-white dark:text-white hover:bg-blue-700 active:scale-95 shadow-lg shadow-blue-200'
+                    : 'bg-slate-200 dark:bg-[#48484a] text-slate-400 dark:text-[#98989d] cursor-not-allowed'
                 }`}>
                 {ffState === 'done' ? '→ 进入下一步' : '→'}
               </button>
@@ -644,8 +644,8 @@ export default function LabSimulator() {
               <button onClick={goNext} disabled={!canAdvance}
                 className={`px-5 py-2 rounded-lg text-sm font-bold transition-all cursor-pointer ${
                   canAdvance
-                    ? 'bg-blue-600 text-white hover:bg-blue-700 active:scale-95 shadow-lg shadow-blue-200'
-                    : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                    ? 'bg-blue-600 text-white dark:text-white hover:bg-blue-700 active:scale-95 shadow-lg shadow-blue-200'
+                    : 'bg-slate-200 dark:bg-[#48484a] text-slate-400 dark:text-[#98989d] cursor-not-allowed'
                 }`}>
                 完成，下一步 →
               </button>
@@ -665,7 +665,7 @@ export default function LabSimulator() {
 
       {/* Reset */}
       <div className="mt-6 text-center">
-        <button onClick={reset} className="text-xs text-slate-400 hover:text-slate-600 underline cursor-pointer">
+        <button onClick={reset} className="text-xs text-slate-400 dark:text-[#98989d] hover:text-slate-600 dark:text-[#aeaeb2] underline cursor-pointer">
           重新开始当前实验
         </button>
       </div>

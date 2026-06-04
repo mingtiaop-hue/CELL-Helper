@@ -2,7 +2,7 @@ export default function SopRedLines() {
   return (
     <div className="space-y-5">
       {/* Header warning */}
-      <div className="bg-red-600 text-white rounded-xl p-5 flex gap-4 items-start">
+      <div className="bg-red-600 text-white dark:text-white rounded-xl p-5 flex gap-4 items-start">
         <span className="text-3xl flex-shrink-0">🚨</span>
         <div>
           <h3 className="font-bold text-lg">细胞消化红线 —— 用错=实验报废</h3>
@@ -55,36 +55,36 @@ export default function SopRedLines() {
       />
 
       {/* Summary table */}
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="px-5 py-3.5 border-b border-slate-100">
-          <h3 className="font-semibold text-slate-800 text-sm">📊 消化方法速查表</h3>
+      <div className="bg-white dark:bg-[#2c2c2e] rounded-xl border border-slate-200 dark:border-[#48484a] shadow-sm overflow-hidden">
+        <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#3a3a3c]">
+          <h3 className="font-semibold text-slate-800 dark:text-white dark:text-white text-sm">📊 消化方法速查表</h3>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-slate-50 text-left">
-                <th className="px-5 py-2.5 font-medium text-slate-600">细胞系</th>
-                <th className="px-5 py-2.5 font-medium text-slate-600">贴壁类型</th>
-                <th className="px-5 py-2.5 font-medium text-slate-600">推荐消化法</th>
-                <th className="px-5 py-2.5 font-medium text-slate-600">禁忌</th>
+              <tr className="bg-slate-50 dark:bg-[#2c2c2e] text-left">
+                <th className="px-5 py-2.5 font-medium text-slate-600 dark:text-[#aeaeb2]">细胞系</th>
+                <th className="px-5 py-2.5 font-medium text-slate-600 dark:text-[#aeaeb2]">贴壁类型</th>
+                <th className="px-5 py-2.5 font-medium text-slate-600 dark:text-[#aeaeb2]">推荐消化法</th>
+                <th className="px-5 py-2.5 font-medium text-slate-600 dark:text-[#aeaeb2]">禁忌</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               <tr>
                 <td className="px-5 py-2.5 font-semibold">L929</td>
-                <td className="px-5 py-2.5 text-slate-600">贴壁</td>
+                <td className="px-5 py-2.5 text-slate-600 dark:text-[#aeaeb2]">贴壁</td>
                 <td className="px-5 py-2.5"><span className="bg-green-50 text-green-700 text-xs px-2 py-0.5 rounded-full">0.25% 胰酶</span></td>
-                <td className="px-5 py-2.5 text-slate-500">—</td>
+                <td className="px-5 py-2.5 text-slate-500 dark:text-[#98989d]">—</td>
               </tr>
               <tr className="bg-red-50/50">
                 <td className="px-5 py-2.5 font-semibold">HUVEC</td>
-                <td className="px-5 py-2.5 text-slate-600">贴壁</td>
+                <td className="px-5 py-2.5 text-slate-600 dark:text-[#aeaeb2]">贴壁</td>
                 <td className="px-5 py-2.5"><span className="bg-amber-50 text-amber-700 text-xs px-2 py-0.5 rounded-full">0.05% 胰酶 ≤1 min</span></td>
                 <td className="px-5 py-2.5 text-red-600 font-medium">超时消化</td>
               </tr>
               <tr className="bg-red-50/50">
                 <td className="px-5 py-2.5 font-semibold">RAW264.7</td>
-                <td className="px-5 py-2.5 text-slate-600">半贴壁</td>
+                <td className="px-5 py-2.5 text-slate-600 dark:text-[#aeaeb2]">半贴壁</td>
                 <td className="px-5 py-2.5"><span className="bg-green-50 text-green-700 text-xs px-2 py-0.5 rounded-full">刮刀 / EDTA / 吹打</span></td>
                 <td className="px-5 py-2.5 text-red-600 font-bold">🚫 胰酶</td>
               </tr>
@@ -105,12 +105,12 @@ function RedCard({ cell, subtitle, rule, severity, details }) {
   const c = config[severity]
 
   return (
-    <div className={`bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden border-l-4 ${c.border}`}>
-      <div className={`px-5 py-3.5 border-b border-slate-100 flex items-center justify-between ${severity === 'forbidden' ? 'bg-red-50' : ''}`}>
+    <div className={`bg-white dark:bg-[#2c2c2e] rounded-xl border border-slate-200 dark:border-[#48484a] shadow-sm overflow-hidden border-l-4 ${c.border}`}>
+      <div className={`px-5 py-3.5 border-b border-slate-100 dark:border-[#3a3a3c] flex items-center justify-between ${severity === 'forbidden' ? 'bg-red-50' : ''}`}>
         <div>
           <div className="flex items-center gap-2">
-            <span className="font-bold text-slate-900">{cell}</span>
-            <span className="text-xs text-slate-400">{subtitle}</span>
+            <span className="font-bold text-slate-900 dark:text-white">{cell}</span>
+            <span className="text-xs text-slate-400 dark:text-[#98989d]">{subtitle}</span>
           </div>
         </div>
         <span className={`text-xs font-bold px-3 py-1 rounded-full ${c.badge}`}>
@@ -120,8 +120,8 @@ function RedCard({ cell, subtitle, rule, severity, details }) {
       <div className="px-5 py-4">
         <ul className="space-y-1.5">
           {details.map((d, i) => (
-            <li key={i} className="flex gap-2 text-sm text-slate-700">
-              <span className="text-slate-300 mt-0.5">•</span>
+            <li key={i} className="flex gap-2 text-sm text-slate-700 dark:text-[#f5f5f7]">
+              <span className="text-slate-300 dark:text-[#48484a] mt-0.5">•</span>
               <span>{d}</span>
             </li>
           ))}

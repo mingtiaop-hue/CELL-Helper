@@ -2,12 +2,12 @@ export default function SopAdvanced() {
   return (
     <div className="space-y-6">
       {/* Experiment 1: LPS-Raw Oxidative Stress */}
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="px-5 py-3.5 border-b border-slate-100 flex items-center gap-3">
+      <div className="bg-white dark:bg-[#2c2c2e] rounded-xl border border-slate-200 dark:border-[#48484a] shadow-sm overflow-hidden">
+        <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#3a3a3c] flex items-center gap-3">
           <span className="text-xl">🦠</span>
           <div>
-            <h3 className="font-semibold text-slate-800 text-sm">LPS-Raw 氧化应激实验</h3>
-            <p className="text-xs text-slate-400">96 孔板 · 共聚焦拍摄 · ROS 检测</p>
+            <h3 className="font-semibold text-slate-800 dark:text-white dark:text-white text-sm">LPS-Raw 氧化应激实验</h3>
+            <p className="text-xs text-slate-400 dark:text-[#98989d]">96 孔板 · 共聚焦拍摄 · ROS 检测</p>
           </div>
           <span className="ml-auto bg-blue-100 text-blue-700 text-xs font-medium px-2.5 py-0.5 rounded-full">96 孔板</span>
         </div>
@@ -33,35 +33,35 @@ export default function SopAdvanced() {
 
           {/* Stage 3: 处理 */}
           <Section num="3" title="LPS + 材料处理">
-            <div className="text-sm text-slate-700">
+            <div className="text-sm text-slate-700 dark:text-[#f5f5f7]">
               <ul className="space-y-1.5">
-                <li className="flex gap-2"><span className="text-slate-300">•</span> 每孔加入 <strong>50 μL LPS 稀释液</strong>（500 ng/mL）</li>
-                <li className="flex gap-2"><span className="text-slate-300">•</span> 每孔加入 <strong>50 μL 待测材料</strong>（或对照培养基）</li>
-                <li className="flex gap-2"><span className="text-slate-300">•</span> 孵育 <strong>4 小时</strong>（37°C / 5% CO₂）</li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> 每孔加入 <strong>50 μL LPS 稀释液</strong>（500 ng/mL）</li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> 每孔加入 <strong>50 μL 待测材料</strong>（或对照培养基）</li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> 孵育 <strong>4 小时</strong>（37°C / 5% CO₂）</li>
               </ul>
             </div>
           </Section>
 
           {/* Stage 4: ROS 检测 */}
           <Section num="4" title="ROS 检测 (DCFH-DA)">
-            <div className="space-y-3 text-sm text-slate-700">
-              <div className="bg-slate-50 rounded-lg px-4 py-3 font-mono text-xs text-slate-600">
+            <div className="space-y-3 text-sm text-slate-700 dark:text-[#f5f5f7]">
+              <div className="bg-slate-50 dark:bg-[#2c2c2e] rounded-lg px-4 py-3 font-mono text-xs text-slate-600 dark:text-[#aeaeb2]">
                 DCFH-DA 工作液 = <strong>10 μL 原液 + 9,990 μL 无血清培养基</strong>（稀释 1,000 倍）
               </div>
               <ul className="space-y-1.5">
-                <li className="flex gap-2"><span className="text-slate-300">•</span> 每孔加入 <strong>100 μL</strong> 稀释后的 DCFH-DA 染料</li>
-                <li className="flex gap-2"><span className="text-slate-300">•</span> 避光孵育 <strong>20–30 min</strong></li>
-                <li className="flex gap-2"><span className="text-slate-300">•</span> 无血清培养基<strong>洗涤 2–3 次</strong>，去除胞外染料</li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> 每孔加入 <strong>100 μL</strong> 稀释后的 DCFH-DA 染料</li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> 避光孵育 <strong>20–30 min</strong></li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> 无血清培养基<strong>洗涤 2–3 次</strong>，去除胞外染料</li>
               </ul>
             </div>
           </Section>
 
           {/* Stage 5: 染色 + 拍摄 */}
           <Section num="5" title="Hoechst 核染色 + 共聚焦拍摄">
-            <div className="space-y-2 text-sm text-slate-700">
+            <div className="space-y-2 text-sm text-slate-700 dark:text-[#f5f5f7]">
               <ul className="space-y-1.5">
-                <li className="flex gap-2"><span className="text-slate-300">•</span> 每孔加入 <strong>100 μL Hoechst 染料</strong>，避光孵育 <strong>10 min</strong></li>
-                <li className="flex gap-2"><span className="text-slate-300">•</span> 共聚焦拍摄通道：<strong>FITC (ROS 绿色) / DAPI (细胞核蓝色) / 明场</strong></li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> 每孔加入 <strong>100 μL Hoechst 染料</strong>，避光孵育 <strong>10 min</strong></li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> 共聚焦拍摄通道：<strong>FITC (ROS 绿色) / DAPI (细胞核蓝色) / 明场</strong></li>
               </ul>
             </div>
           </Section>
@@ -81,12 +81,12 @@ export default function SopAdvanced() {
       </div>
 
       {/* Experiment 2: LPS Macrophage Transformation */}
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="px-5 py-3.5 border-b border-slate-100 flex items-center gap-3">
+      <div className="bg-white dark:bg-[#2c2c2e] rounded-xl border border-slate-200 dark:border-[#48484a] shadow-sm overflow-hidden">
+        <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#3a3a3c] flex items-center gap-3">
           <span className="text-xl">🔬</span>
           <div>
-            <h3 className="font-semibold text-slate-800 text-sm">LPS 诱导巨噬细胞转化 · 外送染色</h3>
-            <p className="text-xs text-slate-400">24 孔板 · 细胞爬片 · 免疫荧光</p>
+            <h3 className="font-semibold text-slate-800 dark:text-white dark:text-white text-sm">LPS 诱导巨噬细胞转化 · 外送染色</h3>
+            <p className="text-xs text-slate-400 dark:text-[#98989d]">24 孔板 · 细胞爬片 · 免疫荧光</p>
           </div>
           <span className="ml-auto bg-purple-100 text-purple-700 text-xs font-medium px-2.5 py-0.5 rounded-full">24 孔板</span>
         </div>
@@ -94,22 +94,22 @@ export default function SopAdvanced() {
         <div className="px-5 py-4 space-y-5">
           {/* Stage 1 */}
           <Section num="1" title="种板 + 贴壁">
-            <div className="space-y-2 text-sm text-slate-700">
+            <div className="space-y-2 text-sm text-slate-700 dark:text-[#f5f5f7]">
               <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-sm text-amber-800">
                 ⚠️ 关键步骤：24 孔板内<strong>预先放置适配的细胞爬片</strong>（无菌操作），再接种细胞。
               </div>
               <ul className="space-y-1.5">
-                <li className="flex gap-2"><span className="text-slate-300">•</span> 接种后贴壁 <strong>24 小时</strong></li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> 接种后贴壁 <strong>24 小时</strong></li>
               </ul>
             </div>
           </Section>
 
           {/* Stage 2 */}
           <Section num="2" title="LPS + 材料处理">
-            <div className="text-sm text-slate-700">
+            <div className="text-sm text-slate-700 dark:text-[#f5f5f7]">
               <ul className="space-y-1.5">
-                <li className="flex gap-2"><span className="text-slate-300">•</span> 使用<strong>无血清</strong>培养基配制 LPS + 材料</li>
-                <li className="flex gap-2"><span className="text-slate-300">•</span> 处理 <strong>24 小时</strong></li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> 使用<strong>无血清</strong>培养基配制 LPS + 材料</li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> 处理 <strong>24 小时</strong></li>
               </ul>
             </div>
           </Section>
@@ -129,11 +129,11 @@ export default function SopAdvanced() {
 
           {/* Stage 4 */}
           <Section num="4" title="洗涤 + 外送">
-            <div className="space-y-2 text-sm text-slate-700">
+            <div className="space-y-2 text-sm text-slate-700 dark:text-[#f5f5f7]">
               <ul className="space-y-1.5">
-                <li className="flex gap-2"><span className="text-slate-300">•</span> PBS 轻柔洗涤 <strong>3 次</strong></li>
-                <li className="flex gap-2"><span className="text-slate-300">•</span> 孔内覆盖<strong>薄层 PBS</strong>，防止爬片干燥</li>
-                <li className="flex gap-2"><span className="text-slate-300">•</span> 封口膜密封孔板，标记后送样</li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> PBS 轻柔洗涤 <strong>3 次</strong></li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> 孔内覆盖<strong>薄层 PBS</strong>，防止爬片干燥</li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> 封口膜密封孔板，标记后送样</li>
               </ul>
               <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 text-sm text-blue-800">
                 📍 <strong>送样地址：</strong>天府科技园 B2 栋
@@ -143,12 +143,12 @@ export default function SopAdvanced() {
 
           {/* Stage 5 */}
           <Section num="5" title="封片（收样后）">
-            <div className="text-sm text-slate-700">
+            <div className="text-sm text-slate-700 dark:text-[#f5f5f7]">
               <ul className="space-y-1.5">
-                <li className="flex gap-2"><span className="text-slate-300">•</span> 用弯头镊子<strong>挑起爬片</strong>，细胞面朝上置于载玻片</li>
-                <li className="flex gap-2"><span className="text-slate-300">•</span> <strong>吹干</strong>爬片表面水分</li>
-                <li className="flex gap-2"><span className="text-slate-300">•</span> 滴加 <strong>硅油</strong>，盖上盖玻片封片</li>
-                <li className="flex gap-2"><span className="text-slate-300">•</span> 4°C 避光保存，尽快上机拍摄</li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> 用弯头镊子<strong>挑起爬片</strong>，细胞面朝上置于载玻片</li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> <strong>吹干</strong>爬片表面水分</li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> 滴加 <strong>硅油</strong>，盖上盖玻片封片</li>
+                <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span> 4°C 避光保存，尽快上机拍摄</li>
               </ul>
             </div>
           </Section>
@@ -163,10 +163,10 @@ function Section({ num, title, children }) {
   return (
     <div>
       <div className="flex items-center gap-2 mb-2">
-        <span className="w-5 h-5 rounded-full bg-slate-700 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
+        <span className="w-5 h-5 rounded-full bg-slate-700 text-white dark:text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
           {num}
         </span>
-        <h4 className="text-sm font-semibold text-slate-700">{title}</h4>
+        <h4 className="text-sm font-semibold text-slate-700 dark:text-[#f5f5f7]">{title}</h4>
       </div>
       {children}
     </div>
@@ -175,9 +175,9 @@ function Section({ num, title, children }) {
 
 function ParamBox({ label, value }) {
   return (
-    <div className="bg-slate-50 rounded-lg px-3 py-2.5">
-      <div className="text-xs text-slate-400 mb-0.5">{label}</div>
-      <div className="text-sm font-medium text-slate-800">{value}</div>
+    <div className="bg-slate-50 dark:bg-[#2c2c2e] rounded-lg px-3 py-2.5">
+      <div className="text-xs text-slate-400 dark:text-[#98989d] mb-0.5">{label}</div>
+      <div className="text-sm font-medium text-slate-800 dark:text-white">{value}</div>
     </div>
   )
 }
