@@ -9,7 +9,7 @@ const cells = [
   },
   {
     name: 'RAW264.7', fullName: '小鼠巨噬细胞',
-    media: '巨噬细胞专用培养基 (Macrophage-specific Medium)',
+    media: 'TCM 巨噬细胞专用培养基',
     mediaHighlight: true,
     confluence: '~1×10⁷', passage: '70%–80% 融合',
     traits: ['贴壁较松', '刮刀代胰酶', 'LPS → M1 极化'],

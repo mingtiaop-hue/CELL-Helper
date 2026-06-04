@@ -70,14 +70,14 @@ function StepOne({ count, setCount, squares, setSquares, dilution, setDilution, 
             ))}
           </select>
           <p className="text-[14px] text-[#aeaeb2] dark:text-[#636366] mt-1.5 leading-relaxed">
-            例：取 10μL 悬液 + 90μL 培养基混匀后计数 → 填 10
+            例：取 10μL 悬液 + 90μL 培养基混匀后计数 → 稀释了 10 倍 → 填 10，公式自动 ÷10
           </p>
         </div>
       </div>
 
       {/* Formula */}
       <div className="mt-4 bg-[#f5f5f7] dark:bg-[#2c2c2e] rounded-xl px-4 py-2.5 text-xs text-[#86868b] dark:text-[#98989d] font-mono tracking-tight">
-        浓度 = (总数 ÷ 大格数) × 10⁴ × 稀释倍数
+        浓度 = (总数 ÷ 大格数) × 10⁴ ÷ 稀释倍数
       </div>
 
       {/* Result — glowing when valid */}
@@ -402,7 +402,7 @@ export default function PlateCalculator() {
     const c = parseInt(count)
     const s = parseInt(squares)
     if (!c || !s || c <= 0 || s <= 0) return null
-    return (c / s) * 1e4 * dilution
+    return (c / s) * 1e4 / dilution
   }, [count, squares, dilution])
 
   return (
