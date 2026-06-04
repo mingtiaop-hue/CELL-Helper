@@ -1,22 +1,5 @@
+import { DENSITY_CHIPS, PLATES } from '../data/calculator'
 import { useState, useMemo } from 'react'
-
-/* ================================================================
-   DATA
-   ================================================================ */
-const DENSITY_CHIPS = [
-  { label: 'CCK-8',      value: 5000 },
-  { label: '活死染',      value: 40000 },
-  { label: '划痕',        value: 400000 },
-  { label: 'LPS-Raw',     value: 50000 },
-]
-
-const PLATES = {
-  6:   { label: '6 孔板',  volRecommend: 2000 },
-  12:  { label: '12 孔板', volRecommend: 1000 },
-  24:  { label: '24 孔板', volRecommend: 500 },
-  48:  { label: '48 孔板', volRecommend: 250 },
-  96:  { label: '96 孔板', volRecommend: 100 },
-}
 
 /* ================================================================
    STEP 1 — HEMOCYTOMETER
@@ -70,14 +53,14 @@ function StepOne({ count, setCount, squares, setSquares, dilution, setDilution, 
             ))}
           </select>
           <p className="text-[14px] text-[#aeaeb2] dark:text-[#636366] mt-1.5 leading-relaxed">
-            例：取 10μL 悬液 + 90μL 培养基混匀后计数 → 稀释了 10 倍 → 填 10，公式自动 ÷10
+            例：取 10μL 悬液 + 90μL 培养基混匀后计数 → 稀释了 10 倍 → 填 10，公式自动 ×10
           </p>
         </div>
       </div>
 
       {/* Formula */}
       <div className="mt-4 bg-[#f5f5f7] dark:bg-[#2c2c2e] rounded-xl px-4 py-2.5 text-xs text-[#86868b] dark:text-[#98989d] font-mono tracking-tight">
-        浓度 = (总数 ÷ 大格数) × 10⁴ ÷ 稀释倍数
+        浓度 = (总数 ÷ 大格数) × 10⁴ × 稀释倍数
       </div>
 
       {/* Result — glowing when valid */}
@@ -402,7 +385,7 @@ export default function PlateCalculator() {
     const c = parseInt(count)
     const s = parseInt(squares)
     if (!c || !s || c <= 0 || s <= 0) return null
-    return (c / s) * 1e4 / dilution
+    return (c / s) * 1e4 * dilution
   }, [count, squares, dilution])
 
   return (

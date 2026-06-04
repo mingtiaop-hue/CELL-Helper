@@ -165,6 +165,7 @@ export default function App() {
             </Route>
             <Route path="/plate-calculator" element={<PlateCalculator />} />
             <Route path="/lab-simulator" element={<LabSimulator />} />
+            <Route path="/" element={<Navigate to="/cell-database" replace />} />
             <Route path="*" element={<Navigate to="/cell-database" replace />} />
           </Routes>
         </main>
