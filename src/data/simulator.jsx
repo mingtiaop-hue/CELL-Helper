@@ -419,6 +419,124 @@ const SCENARIOS = [
       },
     ],
   },
+  {
+    id: 'cytotox',
+    title: 'CCK-8 细胞毒性 + 活死染色',
+    icon: '🧪',
+    badge: '96 孔板',
+    badgeColor: 'bg-sky-100 text-sky-700',
+    color: 'from-sky-500 to-blue-600',
+    steps: [
+      {
+        title: '种板：L929 接种',
+        content: (
+          <div className="space-y-3">
+            <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
+              L929 消化计数，调整至 <strong>5×10⁴–1×10⁵ cells/mL</strong>。96 孔板每孔加入 <strong>100 μL</strong> 细胞悬液（约 5,000–10,000 cells/孔）。
+            </p>
+            <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-sm text-amber-800">
+              💡 边缘一圈孔不加细胞，只加 <strong>100 μL PBS</strong> 作防蒸发屏障。实验组和对照组放在中间区域。
+            </div>
+          </div>
+        ),
+        checklist: [
+          { id: 'edge', label: '边缘孔已加 PBS 防蒸发' },
+          { id: 'counted', label: 'L929 已计数，密度 5,000–10,000/孔' },
+        ],
+        fastForward: null,
+      },
+      {
+        title: '等待细胞贴壁',
+        content: (
+          <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
+            37°C / 5% CO₂ 培养箱<strong>过夜培养</strong>，使细胞贴壁。次日镜下确认细胞贴壁良好。
+          </p>
+        ),
+        checklist: [],
+        fastForward: { label: '细胞贴壁', time: '过夜 (~16 h)', duration: 2200 },
+      },
+      {
+        title: '准备浸提液 & 加药',
+        content: (
+          <div className="space-y-3">
+            <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
+              材料浸提液已提前制备（材料 : 培养基 = 0.2 g/mL，37°C 浸提 24 h → 离心取上清 → 滤菌膜过滤）。
+            </p>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 text-sm text-blue-800">
+              <strong>加药：</strong>吸弃旧培养基 → 每孔加入 <strong>100 μL</strong> 不同浓度浸提液（设置浓度梯度 + 空白对照 + 阳性对照，每组 ≥3 复孔）
+            </div>
+          </div>
+        ),
+        checklist: [
+          { id: 'gradient', label: '已设置浓度梯度、空白和阳性对照' },
+          { id: 'triplicate', label: '每组至少 3 复孔' },
+        ],
+        fastForward: null,
+      },
+      {
+        title: '材料共孵育',
+        content: (
+          <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
+            37°C / 5% CO₂ 培养 <strong>24 h</strong>（或设置不同时间点）。
+          </p>
+        ),
+        checklist: [],
+        fastForward: { label: '材料共孵育', time: '24 h', duration: 2200 },
+      },
+      {
+        title: 'CCK-8 检测',
+        content: (
+          <div className="space-y-3">
+            <div className="bg-slate-100 dark:bg-[#3a3a3c] rounded-lg px-4 py-3 text-sm">
+              <code className="text-xs text-slate-600 dark:text-[#aeaeb2]">
+                CCK-8 工作液 = CCK-8 试剂 : 完全培养基 = <strong>1:9</strong>
+              </code>
+            </div>
+            <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
+              每孔加入 <strong>100 μL</strong> CCK-8 工作液，37°C <strong>避光</strong>孵育 1 h。
+            </p>
+            <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-sm text-red-800">
+              🚨 CCK-8 <strong>超过 2 h</strong> 毒性显著提升！严格控制时间。
+            </div>
+            <p className="text-slate-600 dark:text-[#aeaeb2]">
+              酶标仪 <strong>450 nm</strong> 测 OD → 计算细胞活力。
+            </p>
+          </div>
+        ),
+        checklist: [
+          { id: 'dark', label: '操作全程避光' },
+          { id: 'time', label: '孵育时间 ≤2 h' },
+        ],
+        fastForward: null,
+      },
+      {
+        title: '活死染色（Calcein-AM / PI）',
+        content: (
+          <div className="space-y-3">
+            <p className="text-slate-600 dark:text-[#aeaeb2] leading-relaxed">
+              弃培养基 → PBS <strong>轻洗 1 次</strong>（勿用力，会洗掉细胞）。
+            </p>
+            <div className="bg-green-50 border border-green-200 rounded-lg px-4 py-3 text-sm">
+              <p className="text-green-800"><strong>AM 染色：</strong>每孔 50 μL → 染 10 min → 镜下观察 → 无血清培养基洗 2 次</p>
+              <p className="text-green-800 mt-1"><strong>PI 染色：</strong>每孔 50 μL → 染 3–5 min → 吸出 → 加无血清培养基 → 荧光显微镜拍摄</p>
+            </div>
+            <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-sm text-red-800">
+              🚨 <strong>染色时间过长细胞会死！</strong>活死信号重合 = 染色失败。全程避光。
+            </div>
+            <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-sm text-amber-800">
+              💡 排枪作业时<strong>板子斜过来</strong>，枪头接触底部同边后吸出，避免吸除不全。
+            </div>
+          </div>
+        ),
+        checklist: [
+          { id: 'am-time', label: 'AM 染色 ≤10 min，镜下实时观察' },
+          { id: 'pi-time', label: 'PI 染色 3–5 min，严格避光' },
+          { id: 'gentle', label: 'PBS 轻柔洗涤，未用力冲细胞' },
+        ],
+        fastForward: null,
+      },
+    ],
+  },
 ]
 
 export default SCENARIOS

@@ -4,6 +4,7 @@ const tabs = [
   { path: '/experiment-sop/basics',   label: '🧪 基础常识' },
   { path: '/experiment-sop/redlines', label: '⚠️ 细胞特性红线' },
   { path: '/experiment-sop/advanced', label: '🔬 进阶实验' },
+  { path: '/experiment-sop/bacteria', label: '🦠 细菌实验' },
 ]
 
 export default function ExperimentSOP() {

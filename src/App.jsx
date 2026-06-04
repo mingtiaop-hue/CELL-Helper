@@ -7,6 +7,7 @@ import LabSimulator from './pages/LabSimulator'
 import SopBasics from './pages/sop/SopBasics'
 import SopRedLines from './pages/sop/SopRedLines'
 import SopAdvanced from './pages/sop/SopAdvanced'
+import SopBacteria from './pages/sop/SopBacteria'
 
 const navItems = [
   { path: '/cell-database',    label: '细胞资料库', icon: '🧬' },
@@ -16,6 +17,7 @@ const navItems = [
       { path: '/experiment-sop/basics',   label: '基础常识' },
       { path: '/experiment-sop/redlines', label: '细胞特性红线' },
       { path: '/experiment-sop/advanced', label: '进阶实验' },
+      { path: '/experiment-sop/bacteria', label: '细菌实验' },
     ],
   },
   { path: '/plate-calculator', label: '铺板计算器',   icon: '🔬' },
@@ -162,6 +164,7 @@ export default function App() {
               <Route path="basics" element={<SopBasics />} />
               <Route path="redlines" element={<SopRedLines />} />
               <Route path="advanced" element={<SopAdvanced />} />
+              <Route path="bacteria" element={<SopBacteria />} />
             </Route>
             <Route path="/plate-calculator" element={<PlateCalculator />} />
             <Route path="/lab-simulator" element={<LabSimulator />} />
