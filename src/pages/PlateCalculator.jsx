@@ -144,7 +144,7 @@ function StepTwo({ conc }) {
 
     const totalCells = d * n * redundancy
     const totalVol   = v * n * redundancy
-    const stockVol   = totalCells / conc * 1e6    // μL
+    const stockVol   = (totalCells / conc) * 1000    // mL → μL
     const mediumVol  = totalVol - stockVol
 
     return {
@@ -318,7 +318,7 @@ function StepTwo({ conc }) {
                 <strong className="text-[#34c759]">{result.stockVol.toFixed(1)} μL</strong>{' '}
                 加入管中。
                 <div className="text-[14px] text-[#aeaeb2] dark:text-[#636366] mt-0.5">
-                  = {result.totalCells.toLocaleString()} cells ÷ {conc.toLocaleString()} cells/mL × 10⁶
+                  = {result.totalCells.toLocaleString()} cells ÷ {conc.toLocaleString()} cells/mL × 1000 (mL→μL)
                 </div>
               </OpCard>
 

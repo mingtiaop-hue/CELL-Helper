@@ -9,7 +9,8 @@ const cells = [
   },
   {
     name: 'RAW264.7', fullName: '小鼠巨噬细胞',
-    media: 'DMEM + 10% FBS + 1% 双抗',
+    media: '巨噬细胞专用培养基 (Macrophage-specific Medium)',
+    mediaHighlight: true,
     confluence: '~1×10⁷', passage: '70%–80% 融合',
     traits: ['贴壁较松', '刮刀代胰酶', 'LPS → M1 极化'],
     accent: 'from-[#ff9f0a] to-[#ffcc00]', badgeBg: 'bg-[#ff9f0a]/8 dark:bg-[#ff9f0a]/20 text-[#ff9f0a]',
@@ -58,7 +59,7 @@ export default function CellDatabase() {
               <div className="space-y-3">
                 <div>
                   <div className="text-[14px] font-semibold text-[#aeaeb2] dark:text-[#636366] uppercase tracking-wider mb-0.5">培养基</div>
-                  <div className="text-[13px] text-[#1d1d1f] dark:text-white/80 dark:text-white/80 leading-relaxed">{c.media}</div>
+                  <div className={`text-[13px] leading-relaxed font-medium ${c.mediaHighlight ? 'text-[#ff9f0a] dark:text-[#ffcc00]' : 'text-[#1d1d1f] dark:text-white/80'}`}>{c.media} {c.mediaHighlight && <span className="text-[11px] ml-1 px-1.5 py-0.5 rounded bg-[#ff9f0a]/10 dark:bg-[#ff9f0a]/20">⚠️ 特殊培养基</span>}</div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
@@ -100,7 +101,7 @@ export default function CellDatabase() {
 
       {/* Digest table */}
       <div className="apple-card p-5 sm:p-6">
-        <h3 className="font-semibold text-[16px] text-[#1d1d1f] dark:text-white dark:text-white tracking-tight mb-4">消化方法速查</h3>
+        <h3 className="font-semibold text-[16px] text-[#1d1d1f] dark:text-white tracking-tight mb-4">消化方法速查</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
@@ -115,11 +116,11 @@ export default function CellDatabase() {
                 <tr key={r.name} className="border-b border-black/[0.02] dark:border-white/[0.04] last:border-0">
                   <td className="py-3 text-[13px] font-semibold text-[#1d1d1f] dark:text-white">{r.name}</td>
                   <td className="py-3">
-                    <span className="text-[13px] font-medium bg-[#34c759]/8 dark:bg-[#34c759]/20 text-[#34c759] px-2.5 py-1 rounded-full">
+                    <span className="inline-block text-[13px] font-medium bg-[#34c759]/8 dark:bg-[#34c759]/20 text-[#34c759] px-2.5 py-1 rounded-full whitespace-nowrap">
                       {r.method}
                     </span>
                   </td>
-                  <td className={`py-3 text-[13px] font-medium ${r.forbidRed ? 'text-[#ff3b30]' : 'text-[#86868b] dark:text-[#98989d]'}`}>
+                  <td className={`py-3 text-[13px] font-medium whitespace-nowrap ${r.forbidRed ? 'text-[#ff3b30]' : 'text-[#86868b] dark:text-[#98989d]'}`}>
                     {r.forbid}
                   </td>
                 </tr>
