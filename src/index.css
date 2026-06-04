@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+/* ================================================================
+   APPLE-LIKE GLOBAL STYLES
+   ================================================================ */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(0, 0, 0, 0.04);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Noto Sans SC", "Segoe UI", sans-serif;
+  font-size: 15px;
+  background: #f5f5f7;
+  color: #1d1d1f;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar — thin, subtle */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d2d2d7; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #aeaeb2; }
+
+/* ================================================================
+   GLASS / BLUR UTILITIES
+   ================================================================ */
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ================================================================
+   APPLE CARD
+   ================================================================ */
+.apple-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.apple-card:hover {
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 8px 24px rgba(0, 0, 0, 0.05);
+}
+.apple-card-raised {
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.06),
+    0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+/* ================================================================
+   NUMBER TRANSITION — smooth value change
+   ================================================================ */
+.number-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ================================================================
+   BUTTON BASE
+   ================================================================ */
+.btn-apple {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 590;
+  letter-spacing: -0.01em;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: none;
+}
+.btn-apple:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: #0071e3;
+  color: white;
+}
+.btn-primary:hover { background: #0077ed; }
+
+/* ================================================================
+   ANIMATIONS
+   ================================================================ */
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.animate-slide-in-right  { animation: slide-in-right 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.animate-slide-in-left   { animation: slide-in-left 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.animate-fade-in-up      { animation: fade-in-up 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+.animate-scale-in        { animation: scale-in 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
