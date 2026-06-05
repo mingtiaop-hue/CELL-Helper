@@ -34,26 +34,11 @@ export default function SopBasics() {
           </div>
 
           <ol className="space-y-2.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
-            <li className="flex gap-2.5">
-              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-400 text-white dark:text-white text-xs font-bold flex items-center justify-center mt-0.5">1</span>
-              <span>吸除旧培养基（不要触碰细胞层）</span>
-            </li>
-            <li className="flex gap-2.5">
-              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-400 text-white dark:text-white text-xs font-bold flex items-center justify-center mt-0.5">2</span>
-              <span><strong>1 mL PBS</strong> 轻柔冲洗细胞层，去除残留血清和死细胞</span>
-            </li>
-            <li className="flex gap-2.5">
-              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-400 text-white dark:text-white text-xs font-bold flex items-center justify-center mt-0.5">3</span>
-              <span><strong>1 mL 胰酶</strong> 消化（37°C，1–2 分钟至细胞变圆、轻拍皿壁即脱落）</span>
-            </li>
-            <li className="flex gap-2.5">
-              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-400 text-white dark:text-white text-xs font-bold flex items-center justify-center mt-0.5">4</span>
-              <span>加入含血清培养基终止消化，轻柔吹打至单细胞悬液</span>
-            </li>
-            <li className="flex gap-2.5">
-              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-400 text-white dark:text-white text-xs font-bold flex items-center justify-center mt-0.5">5</span>
-              <span>按比例分皿，补液至 <strong>培养瓶 5–7 mL</strong> / <strong>培养皿 8–9 mL</strong></span>
-            </li>
+            <li><span className="inline-flex w-5 h-5 rounded-full bg-slate-400 text-white text-xs font-bold items-center justify-center mr-2 align-middle">1</span>吸除旧培养基（不要触碰细胞层）</li>
+            <li><span className="inline-flex w-5 h-5 rounded-full bg-slate-400 text-white text-xs font-bold items-center justify-center mr-2 align-middle">2</span><strong>1 mL PBS</strong> 轻柔冲洗细胞层，去除残留血清和死细胞</li>
+            <li><span className="inline-flex w-5 h-5 rounded-full bg-slate-400 text-white text-xs font-bold items-center justify-center mr-2 align-middle">3</span><strong>1 mL 胰酶</strong> 消化（37°C，1–2 分钟至细胞变圆、轻拍皿壁即脱落）</li>
+            <li><span className="inline-flex w-5 h-5 rounded-full bg-slate-400 text-white text-xs font-bold items-center justify-center mr-2 align-middle">4</span>加入含血清培养基终止消化，轻柔吹打至单细胞悬液</li>
+            <li><span className="inline-flex w-5 h-5 rounded-full bg-slate-400 text-white text-xs font-bold items-center justify-center mr-2 align-middle">5</span>按比例分皿，补液至 <strong>培养瓶 5–7 mL</strong> / <strong>培养皿 8–9 mL</strong></li>
           </ol>
           <Tip>吹打力度轻柔，避免产生气泡和机械损伤。HUVEC 胰酶消化 ≤1 min。</Tip>
         </div>
@@ -63,9 +48,9 @@ export default function SopBasics() {
       <Card title="🔢 细胞计数法（血球计数板）" accent="blue">
         <div className="space-y-2 text-sm text-slate-700 dark:text-[#f5f5f7]">
           <ol className="space-y-1.5">
-            <li className="flex gap-2"><span className="text-blue-600 font-bold">①</span> 消化吹匀后，吸取 <strong>10 μL</strong> 细胞悬液，沿盖玻片边缘注入血球计数板</li>
-            <li className="flex gap-2"><span className="text-blue-600 font-bold">②</span> 显微镜下统计 <strong>四周四个大格</strong>（每个大格含 16 小格）的细胞数</li>
-            <li className="flex gap-2"><span className="text-blue-600 font-bold">③</span> 计算四个大格的平均值</li>
+            <li><span className="inline mr-1.5 text-blue-600 font-bold">①</span> 消化吹匀后，吸取 <strong>10 μL</strong> 细胞悬液，沿盖玻片边缘注入血球计数板</li>
+            <li><span className="inline mr-1.5 text-blue-600 font-bold">②</span> 显微镜下统计 <strong>四周四个大格</strong>（每个大格含 16 小格）的细胞数</li>
+            <li><span className="inline mr-1.5 text-blue-600 font-bold">③</span> 计算四个大格的平均值</li>
           </ol>
           <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 text-center">
             <span className="text-sm text-blue-800">
@@ -108,11 +93,11 @@ export default function SopBasics() {
       <Card title="🔥 细胞复苏规范" accent="orange">
         <div className="space-y-2.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
           <ol className="space-y-1.5">
-            <li className="flex gap-2"><span className="text-orange-500 font-bold">①</span> 从液氮/-80°C 取出冻存管，立即投入 <strong>37°C 水浴</strong></li>
-            <li className="flex gap-2"><span className="text-orange-500 font-bold">②</span> 快速摇动，<strong>1–2 分钟内完全融化</strong>（残留少量冰晶即取出）</li>
-            <li className="flex gap-2"><span className="text-orange-500 font-bold">③</span> 立即加入 <strong>10 倍体积以上</strong> 预热培养基，轻柔混匀洗去 DMSO</li>
-            <li className="flex gap-2"><span className="text-orange-500 font-bold">④</span> <strong>1200 rpm 离心 5 min</strong>，弃上清</li>
-            <li className="flex gap-2"><span className="text-orange-500 font-bold">⑤</span> 新鲜培养基重悬，接种至培养瓶/皿</li>
+            <li><span className="inline mr-1.5 text-orange-500 font-bold">①</span> 从液氮/-80°C 取出冻存管，立即投入 <strong>37°C 水浴</strong></li>
+            <li><span className="inline mr-1.5 text-orange-500 font-bold">②</span> 快速摇动，<strong>1–2 分钟内完全融化</strong>（残留少量冰晶即取出）</li>
+            <li><span className="inline mr-1.5 text-orange-500 font-bold">③</span> 立即加入 <strong>10 倍体积以上</strong> 预热培养基，轻柔混匀洗去 DMSO</li>
+            <li><span className="inline mr-1.5 text-orange-500 font-bold">④</span> <strong>1200 rpm 离心 5 min</strong>，弃上清</li>
+            <li><span className="inline mr-1.5 text-orange-500 font-bold">⑤</span> 新鲜培养基重悬，接种至培养瓶/皿</li>
           </ol>
 
           <div className="bg-orange-50 border border-orange-200 rounded-lg px-4 py-3">

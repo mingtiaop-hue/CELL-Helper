@@ -32,8 +32,8 @@ export default function SopBacteria() {
             <strong>灭菌：</strong>灭菌锅 120°C / 20 min。瓶盖不要拧太紧，上面覆盖锡纸防止水蒸气进入。
           </div>
           <ul className="space-y-1.5">
-            <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span>液体培养基冷却至 RT 后直接放入冰箱保存</li>
-            <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span>固体培养基在生物工作台倒满培养皿后冷却保存</li>
+            <li><span className="inline mr-1.5 text-slate-300 dark:text-[#48484a]">•</span>液体培养基冷却至 RT 后直接放入冰箱保存</li>
+            <li><span className="inline mr-1.5 text-slate-300 dark:text-[#48484a]">•</span>固体培养基在生物工作台倒满培养皿后冷却保存</li>
           </ul>
           <Tip>全程注意防菌，倒板时避免气泡。</Tip>
         </div>
@@ -52,11 +52,11 @@ export default function SopBacteria() {
           <div>
             <h4 className="font-semibold text-slate-800 dark:text-white mb-2">OD 值测定步骤</h4>
             <ol className="space-y-1.5">
-              <li className="flex gap-2"><span className="text-green-600 font-bold">①</span> 取 1 mL 菌液，2700 rpm 离心 5 min，取沉淀用 PBS 稀释到 10 mL</li>
-              <li className="flex gap-2"><span className="text-green-600 font-bold">②</span> 酶标仪开机预热 <strong>15 min</strong>，至机器提示预热完成</li>
-              <li className="flex gap-2"><span className="text-green-600 font-bold">③</span> 比色皿冲洗干净，加入 2 mL PBS 放入酶标仪，空白 100% 清零</li>
-              <li className="flex gap-2"><span className="text-green-600 font-bold">④</span> 测试 OD 值，观察与 0.1 的差别后稀释（如 0.321 则稀释 3.21 倍：每 1 mL 菌液 + 2.21 mL PBS）</li>
-              <li className="flex gap-2"><span className="text-green-600 font-bold">⑤</span> 稀释后测试至 <strong>OD = 0.1 ± 0.05</strong> 即可使用</li>
+              <li><span className="inline mr-1.5 text-green-600 font-bold">①</span> 取 1 mL 菌液，2700 rpm 离心 5 min，取沉淀用 PBS 稀释到 10 mL</li>
+              <li><span className="inline mr-1.5 text-green-600 font-bold">②</span> 酶标仪开机预热 <strong>15 min</strong>，至机器提示预热完成</li>
+              <li><span className="inline mr-1.5 text-green-600 font-bold">③</span> 比色皿冲洗干净，加入 2 mL PBS 放入酶标仪，空白 100% 清零</li>
+              <li><span className="inline mr-1.5 text-green-600 font-bold">④</span> 测试 OD 值，观察与 0.1 的差别后稀释（如 0.321 则稀释 3.21 倍：每 1 mL 菌液 + 2.21 mL PBS）</li>
+              <li><span className="inline mr-1.5 text-green-600 font-bold">⑤</span> 稀释后测试至 <strong>OD = 0.1 ± 0.05</strong> 即可使用</li>
             </ol>
           </div>
 
@@ -88,9 +88,9 @@ export default function SopBacteria() {
           <div>
             <h4 className="font-semibold text-slate-800 dark:text-white mb-2">实验准备</h4>
             <ul className="space-y-1">
-              <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span><strong>受试物：</strong>如材料内部抗菌物质，用液体培养基配制所需高浓度</li>
-              <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span><strong>菌种：</strong>按上述步骤活化所需菌</li>
-              <li className="flex gap-2"><span className="text-slate-300 dark:text-[#48484a]">•</span><strong>96 孔板：</strong>调节 OD 值为 0.1，并用液体培养基稀释 100×，目标使 96 孔板种菌数 <strong>5×10⁵ CFU/mL</strong></li>
+              <li><span className="inline mr-1.5 text-slate-300 dark:text-[#48484a]">•</span><strong>受试物：</strong>如材料内部抗菌物质，用液体培养基配制所需高浓度</li>
+              <li><span className="inline mr-1.5 text-slate-300 dark:text-[#48484a]">•</span><strong>菌种：</strong>按上述步骤活化所需菌</li>
+              <li><span className="inline mr-1.5 text-slate-300 dark:text-[#48484a]">•</span><strong>96 孔板：</strong>调节 OD 值为 0.1，并用液体培养基稀释 100×，目标使 96 孔板种菌数 <strong>5×10⁵ CFU/mL</strong></li>
             </ul>
           </div>
 
@@ -148,30 +148,30 @@ export default function SopBacteria() {
 
           <Section num="1" title="第一天：准备">
             <ul className="space-y-1">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>提前一天倒板，复苏所需细菌（10 μL 菌液 + 约 10 mL 液体培养基，摇床过夜）</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>提前一天倒板，复苏所需细菌（10 μL 菌液 + 约 10 mL 液体培养基，摇床过夜）</li>
             </ul>
           </Section>
 
           <Section num="2" title="第二天上午：接菌">
             <ul className="space-y-1">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>材料用 75% 酒精泡洗，PBS/HEPES 清洗掉酒精</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>分光仪预热 → 菌液分装 1 mL × 2 管 → 2700 rpm 离心 5 min</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>吸掉上清，加 10 mL 溶剂 → 比色皿测 OD → 稀释至 <strong>OD = 0.100 ± 0.03</strong></li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>OD 0.1 菌液再稀释 10× → 每个样品孔中加入 <strong>1 mL</strong> 菌液 → 封存后培养 <strong>4 h</strong></li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>材料用 75% 酒精泡洗，PBS/HEPES 清洗掉酒精</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>分光仪预热 → 菌液分装 1 mL × 2 管 → 2700 rpm 离心 5 min</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>吸掉上清，加 10 mL 溶剂 → 比色皿测 OD → 稀释至 <strong>OD = 0.100 ± 0.03</strong></li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>OD 0.1 菌液再稀释 10× → 每个样品孔中加入 <strong>1 mL</strong> 菌液 → 封存后培养 <strong>4 h</strong></li>
             </ul>
           </Section>
 
           <Section num="3" title="第二天下午：超声涂板">
             <ul className="space-y-1">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>取出孔板，吸取溶液，材料放入 EP 管 → 每管加 <strong>1 mL PBS</strong></li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>超声 <strong>10 min</strong> → 吸取适量菌液稀释所需倍数</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>取 <strong>100 μL 涂板</strong> + 取 <strong>10 μL 滴板</strong> → 培养箱过夜</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>取出孔板，吸取溶液，材料放入 EP 管 → 每管加 <strong>1 mL PBS</strong></li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>超声 <strong>10 min</strong> → 吸取适量菌液稀释所需倍数</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>取 <strong>100 μL 涂板</strong> + 取 <strong>10 μL 滴板</strong> → 培养箱过夜</li>
             </ul>
           </Section>
 
           <Section num="4" title="第三天：拍照">
             <ul className="space-y-1">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>上午取出拍照，计数菌落</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>上午取出拍照，计数菌落</li>
             </ul>
           </Section>
         </div>
@@ -183,34 +183,34 @@ export default function SopBacteria() {
 
           <Section num="1" title="生物膜培养">
             <ul className="space-y-1">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>10 μL 过夜培养菌液 + 990 μL 含 1% 葡萄糖的 TSB 培养基</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>24 孔板培养 <strong>24–48 h</strong> 形成菌膜</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>10 μL 过夜培养菌液 + 990 μL 含 1% 葡萄糖的 TSB 培养基</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>24 孔板培养 <strong>24–48 h</strong> 形成菌膜</li>
             </ul>
             <div className="mt-2 text-xs text-slate-400">TLC 处理后的孔板更易形成菌膜</div>
           </Section>
 
           <Section num="2" title="固定">
             <ul className="space-y-1">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>胰岛素针<strong>轻柔</strong>吸出菌液，晾干 10–15 min</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>甲醇室温固定 <strong>15–30 min</strong></li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>胰岛素针轻柔吸出甲醇，生物安全柜/烘箱中彻底风干</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>胰岛素针<strong>轻柔</strong>吸出菌液，晾干 10–15 min</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>甲醇室温固定 <strong>15–30 min</strong></li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>胰岛素针轻柔吸出甲醇，生物安全柜/烘箱中彻底风干</li>
             </ul>
           </Section>
 
           <Section num="3" title="结晶紫染色">
             <ul className="space-y-1">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>每孔加 500 μL <strong>0.1% 结晶紫</strong>，室温染色 15–20 min</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>吸出结晶紫，PBS 清洗</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>彻底晾干 → 直接拍照或荧光显微镜拍照</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>每孔加 <strong>95% 乙醇或 33% 冰醋酸</strong>，室温溶解 10–15 min 至完全溶解</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>新 96 孔板中拍照并测量吸光度 <strong>OD₅₉₅</strong></li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>每孔加 500 μL <strong>0.1% 结晶紫</strong>，室温染色 15–20 min</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>吸出结晶紫，PBS 清洗</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>彻底晾干 → 直接拍照或荧光显微镜拍照</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>每孔加 <strong>95% 乙醇或 33% 冰醋酸</strong>，室温溶解 10–15 min 至完全溶解</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>新 96 孔板中拍照并测量吸光度 <strong>OD₅₉₅</strong></li>
             </ul>
           </Section>
 
           <Section num="4" title="CLSM 共聚焦观察">
             <ul className="space-y-1">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>吸出菌液后 PBS 清洗 → 超声 10 min 分散生物膜细菌 → 稀释后涂板</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>共聚焦皿中重复上述培养 → 去掉菌液 → 加入细菌活死染料 → 共聚焦观察</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>吸出菌液后 PBS 清洗 → 超声 10 min 分散生物膜细菌 → 稀释后涂板</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>共聚焦皿中重复上述培养 → 去掉菌液 → 加入细菌活死染料 → 共聚焦观察</li>
             </ul>
           </Section>
         </div>
@@ -223,10 +223,10 @@ export default function SopBacteria() {
             ⚠️ <strong>全程注意避光操作。</strong>
           </div>
           <ol className="space-y-1.5">
-            <li className="flex gap-2"><span className="text-cyan-500 font-bold">①</span>吸出菌液后 PBS 清洗，超声 10 min 分散生物膜细菌</li>
-            <li className="flex gap-2"><span className="text-cyan-500 font-bold">②</span>稀释后涂板，在共聚焦皿中重复培养</li>
-            <li className="flex gap-2"><span className="text-cyan-500 font-bold">③</span>培养后去掉菌液，加入细菌活死染料</li>
-            <li className="flex gap-2"><span className="text-cyan-500 font-bold">④</span>共聚焦显微镜观察拍摄</li>
+            <li><span className="inline mr-1.5 text-cyan-500 font-bold">①</span>吸出菌液后 PBS 清洗，超声 10 min 分散生物膜细菌</li>
+            <li><span className="inline mr-1.5 text-cyan-500 font-bold">②</span>稀释后涂板，在共聚焦皿中重复培养</li>
+            <li><span className="inline mr-1.5 text-cyan-500 font-bold">③</span>培养后去掉菌液，加入细菌活死染料</li>
+            <li><span className="inline mr-1.5 text-cyan-500 font-bold">④</span>共聚焦显微镜观察拍摄</li>
           </ol>
         </div>
       </Card>

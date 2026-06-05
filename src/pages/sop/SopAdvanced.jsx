@@ -47,8 +47,8 @@ export default function SopAdvanced() {
 
           <Section num="3" title="加药处理">
             <ul className="space-y-1.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>弃去细胞原培养基，每孔加入 <strong>100 μL</strong> 不同处理组浸提液</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>37°C / 5% CO₂ 继续培养 <strong>24 h</strong>（或其他时间组）</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>弃去细胞原培养基，每孔加入 <strong>100 μL</strong> 不同处理组浸提液</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>37°C / 5% CO₂ 继续培养 <strong>24 h</strong>（或其他时间组）</li>
             </ul>
           </Section>
 
@@ -58,10 +58,10 @@ export default function SopAdvanced() {
                 CCK-8 工作液 = CCK-8 试剂 : 完全培养基 = <strong>1:9</strong> 稀释
               </div>
               <ul className="space-y-1.5">
-                <li className="flex gap-2"><span className="text-slate-300">•</span>每孔加入 <strong>100 μL</strong> CCK-8 工作液</li>
-                <li className="flex gap-2"><span className="text-slate-300">•</span>37°C <strong>避光</strong>孵育 1 h</li>
-                <li className="flex gap-2"><span className="text-slate-300">•</span>酶标仪 <strong>450 nm</strong> 测定 OD 值</li>
-                <li className="flex gap-2"><span className="text-slate-300">•</span><strong>细胞活力 (%) = (OD_sample − OD_blank) / (OD_control − OD_blank) × 100%</strong></li>
+                <li><span className="inline mr-1.5 text-slate-300">•</span>每孔加入 <strong>100 μL</strong> CCK-8 工作液</li>
+                <li><span className="inline mr-1.5 text-slate-300">•</span>37°C <strong>避光</strong>孵育 1 h</li>
+                <li><span className="inline mr-1.5 text-slate-300">•</span>酶标仪 <strong>450 nm</strong> 测定 OD 值</li>
+                <li><span className="inline mr-1.5 text-slate-300">•</span><strong>细胞活力 (%) = (OD_sample − OD_blank) / (OD_control − OD_blank) × 100%</strong></li>
               </ul>
             </div>
             <div className="mt-2 space-y-1.5">
@@ -107,11 +107,11 @@ export default function SopAdvanced() {
 
           <Section num="3" title="染色步骤">
             <ol className="space-y-1.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
-              <li className="flex gap-2"><span className="text-green-600 font-bold">①</span>弃培养基，PBS 轻洗细胞 1 次</li>
-              <li className="flex gap-2"><span className="text-green-600 font-bold">②</span>每孔加 AM 工作液覆盖细胞（96 孔板 50 μL 即可），<strong>染 10 min</strong>（随时镜下观察）</li>
-              <li className="flex gap-2"><span className="text-green-600 font-bold">③</span>染色成功后吸出，无血清培养基洗涤 2 次</li>
-              <li className="flex gap-2"><span className="text-green-600 font-bold">④</span>每孔加 PI 工作液，<strong>染 3–5 min</strong></li>
-              <li className="flex gap-2"><span className="text-green-600 font-bold">⑤</span>染色成功后吸出，加无血清培养基，倒置荧光显微镜拍摄</li>
+              <li><span className="inline mr-1.5 text-green-600 font-bold">①</span>弃培养基，PBS 轻洗细胞 1 次</li>
+              <li><span className="inline mr-1.5 text-green-600 font-bold">②</span>每孔加 AM 工作液覆盖细胞（96 孔板 50 μL 即可），<strong>染 10 min</strong>（随时镜下观察）</li>
+              <li><span className="inline mr-1.5 text-green-600 font-bold">③</span>染色成功后吸出，无血清培养基洗涤 2 次</li>
+              <li><span className="inline mr-1.5 text-green-600 font-bold">④</span>每孔加 PI 工作液，<strong>染 3–5 min</strong></li>
+              <li><span className="inline mr-1.5 text-green-600 font-bold">⑤</span>染色成功后吸出，加无血清培养基，倒置荧光显微镜拍摄</li>
             </ol>
           </Section>
 
@@ -149,22 +149,22 @@ export default function SopAdvanced() {
         <div className="px-5 py-4 space-y-5">
           <Section num="1" title="种板">
             <ul className="space-y-1.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>内皮长满后消化种板至 12 孔板，每孔 <strong>1 mL</strong></li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>底部用笔<strong>画平行线</strong>方便确定拍照位置</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>培养至贴壁且<strong>完全长满</strong></li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>内皮长满后消化种板至 12 孔板，每孔 <strong>1 mL</strong></li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>底部用笔<strong>画平行线</strong>方便确定拍照位置</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>培养至贴壁且<strong>完全长满</strong></li>
             </ul>
           </Section>
           <Section num="2" title="划痕">
             <ul className="space-y-1.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>用 <strong>200 μL 枪头</strong>划痕（尽量用同一根枪头保持宽度一致）</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>无血清 DMEM 洗涤至无漂浮细胞</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>用 <strong>200 μL 枪头</strong>划痕（尽量用同一根枪头保持宽度一致）</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>无血清 DMEM 洗涤至无漂浮细胞</li>
             </ul>
           </Section>
           <Section num="3" title="拍摄与加药">
             <ul className="space-y-1.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>细胞房显微镜 <strong>10× 明场</strong>拍摄，记为 <strong>0 h</strong></li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>各孔加入不同材料 → 放入培养箱</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>按时间点（6h / 12h / 24h）拍摄同一位置</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>细胞房显微镜 <strong>10× 明场</strong>拍摄，记为 <strong>0 h</strong></li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>各孔加入不同材料 → 放入培养箱</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>按时间点（6h / 12h / 24h）拍摄同一位置</li>
             </ul>
           </Section>
         </div>
@@ -194,25 +194,25 @@ export default function SopAdvanced() {
 
           <Section num="2" title="加药">
             <ul className="space-y-1.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>下室加入 <strong>600 μL</strong> 含有材料/水凝胶的完全培养基</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>对照组：600 μL 完全培养基</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>37°C 培养 <strong>24 h</strong></li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>下室加入 <strong>600 μL</strong> 含有材料/水凝胶的完全培养基</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>对照组：600 μL 完全培养基</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>37°C 培养 <strong>24 h</strong></li>
             </ul>
           </Section>
 
           <Section num="3" title="固定与染色">
             <ol className="space-y-1.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
-              <li className="flex gap-2"><span className="text-orange-500 font-bold">①</span>取出小室，吸干液体，PBS 清洗 2 次（在 PBS 里涮一下）</li>
-              <li className="flex gap-2"><span className="text-orange-500 font-bold">②</span><strong>4% 多聚甲醛固定 10–15 min</strong>（勿超时）→ PBS 清洗 2 次</li>
-              <li className="flex gap-2"><span className="text-orange-500 font-bold">③</span><strong>0.1% 结晶紫染色 15–30 min</strong>（实时观察，也可 1 h）</li>
+              <li><span className="inline mr-1.5 text-orange-500 font-bold">①</span>取出小室，吸干液体，PBS 清洗 2 次（在 PBS 里涮一下）</li>
+              <li><span className="inline mr-1.5 text-orange-500 font-bold">②</span><strong>4% 多聚甲醛固定 10–15 min</strong>（勿超时）→ PBS 清洗 2 次</li>
+              <li><span className="inline mr-1.5 text-orange-500 font-bold">③</span><strong>0.1% 结晶紫染色 15–30 min</strong>（实时观察，也可 1 h）</li>
             </ol>
           </Section>
 
           <Section num="4" title="拍照">
             <ol className="space-y-1.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
-              <li className="flex gap-2"><span className="text-orange-500 font-bold">④</span>湿润棉签<strong>擦掉小室上层细胞</strong>（未迁移的）</li>
-              <li className="flex gap-2"><span className="text-orange-500 font-bold">⑤</span>镊子夹住小室在大量水中涮洗多余结晶紫染料</li>
-              <li className="flex gap-2"><span className="text-orange-500 font-bold">⑥</span>载玻片滴 1 小滴清水 → 放置小室（小室内也加点水）→ 倒置显微镜 <strong>白光 10×</strong> 拍照</li>
+              <li><span className="inline mr-1.5 text-orange-500 font-bold">④</span>湿润棉签<strong>擦掉小室上层细胞</strong>（未迁移的）</li>
+              <li><span className="inline mr-1.5 text-orange-500 font-bold">⑤</span>镊子夹住小室在大量水中涮洗多余结晶紫染料</li>
+              <li><span className="inline mr-1.5 text-orange-500 font-bold">⑥</span>载玻片滴 1 小滴清水 → 放置小室（小室内也加点水）→ 倒置显微镜 <strong>白光 10×</strong> 拍照</li>
             </ol>
           </Section>
         </div>
@@ -245,8 +245,8 @@ export default function SopAdvanced() {
           </Section>
           <Section num="3" title="LPS + 材料处理">
             <ul className="space-y-1.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>每孔加 <strong>50 μL LPS 稀释液</strong>（500 ng/mL）+ <strong>50 μL 待测材料</strong></li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>孵育 <strong>4 h</strong>（37°C / 5% CO₂）</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>每孔加 <strong>50 μL LPS 稀释液</strong>（500 ng/mL）+ <strong>50 μL 待测材料</strong></li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>孵育 <strong>4 h</strong>（37°C / 5% CO₂）</li>
             </ul>
           </Section>
           <Section num="4" title="ROS 检测 (DCFH-DA)">
@@ -254,12 +254,12 @@ export default function SopAdvanced() {
               DCFH-DA 工作液 = 10 μL 原液 + 9,990 μL 无血清培养基（稀释 1,000 倍）
             </div>
             <ul className="space-y-1.5 mt-2 text-sm text-slate-700 dark:text-[#f5f5f7]">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>每孔加 100 μL → 避光孵育 20–30 min → 无血清培养基洗涤 2–3 次</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>每孔加 100 μL → 避光孵育 20–30 min → 无血清培养基洗涤 2–3 次</li>
             </ul>
           </Section>
           <Section num="5" title="Hoechst 核染色 + 共聚焦">
             <ul className="space-y-1.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>每孔加 100 μL Hoechst → 避光 10 min → 共聚焦 FITC/DAPI/明场拍摄</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>每孔加 100 μL Hoechst → 避光 10 min → 共聚焦 FITC/DAPI/明场拍摄</li>
             </ul>
           </Section>
           <Section num="6" title="12h 后验证">
@@ -290,8 +290,8 @@ export default function SopAdvanced() {
           </Section>
           <Section num="2" title="LPS + 材料处理">
             <ul className="space-y-1.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>使用<strong>无血清</strong>培养基配制 LPS + 材料</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>处理 <strong>24 h</strong></li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>使用<strong>无血清</strong>培养基配制 LPS + 材料</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>处理 <strong>24 h</strong></li>
             </ul>
           </Section>
           <Section num="3" title="固定（关键步骤）">
@@ -305,8 +305,8 @@ export default function SopAdvanced() {
           </Section>
           <Section num="4" title="洗涤 + 外送">
             <ul className="space-y-1.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>PBS 轻柔洗涤 <strong>3 次</strong>，孔内覆盖<strong>薄层 PBS</strong>，防止爬片干燥</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>封口膜密封孔板，标记后送样</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>PBS 轻柔洗涤 <strong>3 次</strong>，孔内覆盖<strong>薄层 PBS</strong>，防止爬片干燥</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>封口膜密封孔板，标记后送样</li>
             </ul>
             <div className="mt-2 bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 text-sm text-blue-800">
               📍 <strong>送样地址：</strong>天府科技园 B2 栋
@@ -314,8 +314,8 @@ export default function SopAdvanced() {
           </Section>
           <Section num="5" title="封片（收样后）">
             <ul className="space-y-1.5 text-sm text-slate-700 dark:text-[#f5f5f7]">
-              <li className="flex gap-2"><span className="text-slate-300">•</span>弯头镊子<strong>挑起爬片</strong>，细胞面朝上置于载玻片 → <strong>吹干</strong>水分</li>
-              <li className="flex gap-2"><span className="text-slate-300">•</span>滴加<strong>硅油</strong>，盖上盖玻片封片 → 4°C 避光保存，尽快上机拍摄</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>弯头镊子<strong>挑起爬片</strong>，细胞面朝上置于载玻片 → <strong>吹干</strong>水分</li>
+              <li><span className="inline mr-1.5 text-slate-300">•</span>滴加<strong>硅油</strong>，盖上盖玻片封片 → 4°C 避光保存，尽快上机拍摄</li>
             </ul>
           </Section>
         </div>

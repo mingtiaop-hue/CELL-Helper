@@ -120,10 +120,7 @@ function RedCard({ cell, subtitle, rule, severity, details }) {
       <div className="px-5 py-4">
         <ul className="space-y-1.5">
           {details.map((d, i) => (
-            <li key={i} className="flex gap-2 text-sm text-slate-700 dark:text-[#f5f5f7]">
-              <span className="text-slate-300 dark:text-[#48484a] mt-0.5">•</span>
-              <span>{d}</span>
-            </li>
+            <li key={i}><span className="inline mr-1.5 text-slate-300 dark:text-[#48484a]">•</span>{d}</li>
           ))}
         </ul>
       </div>
