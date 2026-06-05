@@ -24,7 +24,7 @@ export default function Home() {
       <div className="text-center mb-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0071e3]/8 dark:bg-[#0071e3]/15 text-[13px] font-medium text-[#0071e3] dark:text-[#5ac8fa] mb-4">
           <span className="w-1.5 h-1.5 rounded-full bg-[#0071e3] dark:bg-[#5ac8fa] animate-pulse" />
-          四川大学 · 生物医学工程
+          细胞实验室效率工具
         </div>
         <h1 className="text-[36px] sm:text-[42px] font-bold text-[#1d1d1f] dark:text-white tracking-tight leading-tight">
           GOOOOOD's Lab
@@ -72,7 +72,7 @@ export default function Home() {
 
       {/* Footer */}
       <p className="mt-10 text-center text-[13px] text-[#aeaeb2] dark:text-[#636366] font-medium">
-        Sichuan Univ · BME · 2026
+        Fatonion · 2026
       </p>
     </div>
   )
