@@ -70,10 +70,16 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Footer */}
-      <p className="mt-10 text-center text-[13px] text-[#aeaeb2] dark:text-[#636366] font-medium">
-        Fatonion · 2026
-      </p>
+      {/* Support */}
+      <div className="mt-10 text-center">
+        <a href="https://github.com/mingtiaop-hue/CELL-Helper" target="_blank" rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-[#ff9f0a] to-[#ff6b00] text-white font-semibold text-[15px] shadow-lg shadow-[#ff9f0a]/20 hover:shadow-xl hover:scale-[1.02] active:scale-95 transition-all cursor-pointer no-underline">
+          ⭐ 在 GitHub 上支持这个项目
+        </a>
+        <p className="mt-3 text-[13px] text-[#aeaeb2] dark:text-[#636366] font-medium">
+          Fatonion · 2026
+        </p>
+      </div>
     </div>
   )
 }
