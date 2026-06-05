@@ -166,8 +166,16 @@ function AppShell() {
           })}
         </nav>
 
+        {/* Star CTA */}
+        <div className="px-3 pb-3">
+          <a href="https://github.com/mingtiaop-hue/CELL-Helper" target="_blank" rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-gradient-to-r from-[#ff9f0a]/10 to-[#ff6b00]/10 hover:from-[#ff9f0a]/20 hover:to-[#ff6b00]/20 text-[13px] font-semibold text-[#ff9f0a] hover:text-[#ff6b00] transition-all cursor-pointer no-underline">
+            ⭐ Star on GitHub
+          </a>
+        </div>
+
         {/* Footer */}
-        <div className="px-6 py-5 text-xs text-[#aeaeb2] dark:text-[#636366] font-medium">
+        <div className="px-6 py-4 text-xs text-[#aeaeb2] dark:text-[#636366] font-medium border-t border-black/[0.04] dark:border-white/[0.04]">
           {t.app.subtitle}
         </div>
       </aside>
