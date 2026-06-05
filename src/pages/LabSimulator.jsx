@@ -141,7 +141,7 @@ export default function LabSimulator() {
             <span>{s.icon}</span>
             <span className="hidden sm:inline">{s.title}</span>
             <span className="sm:hidden">{s.badge}</span>
-            <span className={`text-xs px-2 py-0.5 rounded-full ${i === scenarioIdx ? 'bg-white dark:bg-[#2c2c2e]/20 text-white' : s.badgeColor}`}>
+            <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${i === scenarioIdx ? 'bg-white/25 text-white' : s.badgeColor}`}>
               {s.badge}
             </span>
           </button>
@@ -192,7 +192,7 @@ export default function LabSimulator() {
                   )}
                 </div>
               </div>
-              <span className="text-[13px] font-semibold bg-white dark:bg-[#2c2c2e]/20 px-2.5 py-1 rounded-full flex-shrink-0">
+              <span className="text-[13px] font-semibold bg-white/20 text-white px-2.5 py-1 rounded-full flex-shrink-0">
                 {current + 1}/{scenario.steps.length}
               </span>
             </div>

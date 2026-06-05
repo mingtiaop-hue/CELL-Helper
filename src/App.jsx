@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route, NavLink, Navigate, useLocation } from 'react-router-dom'
+import { Routes, Route, NavLink, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { I18nProvider, useI18n } from './i18n/context'
 import CellDatabase from './pages/CellDatabase'
 import ExperimentSOP from './pages/ExperimentSOP'
@@ -21,6 +21,7 @@ export default function App() {
 
 function AppShell() {
   const { t, lang, toggleLang } = useI18n()
+  const navigate = useNavigate()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [expanded, setExpanded] = useState(() => {
     const saved = localStorage.getItem('sidebar-expanded')
@@ -90,7 +91,7 @@ function AppShell() {
       >
         {/* Logo + toggles */}
         <div className="px-5 py-6 flex items-center justify-between">
-          <button onClick={() => { window.location.href = '/' }}
+          <button onClick={() => navigate('/')}
             className="text-lg font-bold tracking-tight text-[#1d1d1f] dark:text-white hover:opacity-70 transition-opacity cursor-pointer">
             🧫 {t.app.title}
           </button>
@@ -201,7 +202,7 @@ function AppShell() {
           {/* Breadcrumb — hidden on home page */}
           {location.pathname !== '/' && (
             <div className="mb-4">
-              <button onClick={() => { window.location.href = '/' }}
+              <button onClick={() => navigate('/')}
                 className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#86868b] dark:text-[#98989d] hover:text-[#0071e3] dark:hover:text-[#5ac8fa] transition-colors cursor-pointer">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
