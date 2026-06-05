@@ -102,80 +102,42 @@ export default function DataFormat() {
     }
   }, [parsed, blankWells, controlWells, wellToValue])
 
-  // Generate grouped output for GraphPad Prism
-  const groupedOutput = useMemo(() => {
-    if (!result || !parsed.length) return ''
-
-    // Try to detect groups from data layout
-    // Assume columns = groups, rows = replicates (per group)
-    // Or user pasted a standard layout
-
-    // Simple approach: treat each column of the first row as a group label
+  // Build column-based groups from parsed data (shared by all outputs)
+  const groups = useMemo(() => {
+    if (!parsed.length) return []
     const numCols = Math.max(...parsed.map((r) => r.length))
-    const groups = []
+    const g = []
     for (let c = 0; c < numCols; c++) {
       const group = []
       for (let r = 0; r < parsed.length; r++) {
-        if (parsed[r][c] !== null && parsed[r][c] !== undefined) {
-          group.push(parsed[r][c])
-        }
+        if (parsed[r][c] !== null && parsed[r][c] !== undefined) group.push(parsed[r][c])
       }
-      if (group.length > 0) groups.push(group)
+      if (group.length > 0) g.push(group)
     }
+    return g
+  }, [parsed])
 
-    if (groups.length < 2) {
-      // Flattened format - return as single group
-      const vals = result.normalized
-      return vals.map((v) => v.toFixed(2)).join('\t')
-    }
-
-    // Output as tab-separated grouped format
-    const maxRows = Math.max(...groups.map((g) => g.length))
-    const header = groups.map((_, i) => `Group ${i + 1}`).join('\t')
-    const rows = []
-    for (let r = 0; r < maxRows; r++) {
-      rows.push(groups.map((g) => (r < g.length ? g[r].toFixed(2) : '')).join('\t'))
-    }
-    return header + '\n' + rows.join('\n')
-  }, [result, parsed])
-
-  // Enhanced grouped output with blank subtraction + normalization
+  // GraphPad Prism grouped output with blank subtraction + normalization
   const prismOutput = useMemo(() => {
-    if (!result || !parsed.length) return ''
+    if (!result || !groups.length) return ''
 
-    const numCols = Math.max(...parsed.map((r) => r.length))
-    const groups = []
-    for (let c = 0; c < numCols; c++) {
-      const group = []
-      for (let r = 0; r < parsed.length; r++) {
-        if (parsed[r][c] !== null && parsed[r][c] !== undefined) {
-          group.push(parsed[r][c])
-        }
-      }
-      if (group.length > 0) groups.push(group)
-    }
-
-    // Normalize each group
-    const normGroups = groups.map((g) => {
-      const blankAvg = result.blankAvg
-      const controlRaw = result.controlAvg
-      return g.map((v) => {
-        const corrected = v - blankAvg
-        return controlRaw - blankAvg !== 0 ? (corrected / (controlRaw - blankAvg)) * 100 : 0
+    const normGroups = groups.map((g) =>
+      g.map((v) => {
+        const corrected = v - result.blankAvg
+        const denom = result.controlAvg - result.blankAvg
+        return denom !== 0 ? (corrected / denom) * 100 : 0
       })
-    })
+    )
 
     const maxRows = Math.max(...normGroups.map((g) => g.length))
     const header = normGroups.map((_, i) => `Group ${i + 1}`).join('\t')
     const rows = []
     for (let r = 0; r < maxRows; r++) {
-      rows.push(
-        normGroups.map((g) => (r < g.length ? g[r].toFixed(2) : '')).join('\t')
-      )
+      rows.push(normGroups.map((g) => (r < g.length ? g[r].toFixed(2) : '')).join('\t'))
     }
 
     return `Cell Viability (% of Control)\n\n${header}\n${rows.join('\n')}`
-  }, [result, parsed])
+  }, [result, groups])
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(prismOutput).then(() => {

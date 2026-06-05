@@ -111,12 +111,14 @@ function StepTwo({ conc }) {
     return saved ? parseFloat(saved) : 1.1
   })
 
-  // Persist to localStorage
-  useEffect(() => { localStorage.setItem('calc-density', density) }, [density])
-  useEffect(() => { localStorage.setItem('calc-plateKey', plateKey) }, [plateKey])
-  useEffect(() => { localStorage.setItem('calc-volPerWell', String(volPerWell)) }, [volPerWell])
-  useEffect(() => { localStorage.setItem('calc-wellCount', wellCount) }, [wellCount])
-  useEffect(() => { localStorage.setItem('calc-redundancy', String(redundancy)) }, [redundancy])
+  // Persist to localStorage — single batched write
+  useEffect(() => {
+    localStorage.setItem('calc-density', density)
+    localStorage.setItem('calc-plateKey', plateKey)
+    localStorage.setItem('calc-volPerWell', String(volPerWell))
+    localStorage.setItem('calc-wellCount', wellCount)
+    localStorage.setItem('calc-redundancy', String(redundancy))
+  }, [density, plateKey, volPerWell, wellCount, redundancy])
 
   const plate = PLATES[plateKey]
 
@@ -399,9 +401,11 @@ export default function PlateCalculator() {
     return saved ? parseFloat(saved) : 1
   })
 
-  useEffect(() => { localStorage.setItem('calc-count', count) }, [count])
-  useEffect(() => { localStorage.setItem('calc-squares', String(squares)) }, [squares])
-  useEffect(() => { localStorage.setItem('calc-dilution', String(dilution)) }, [dilution])
+  useEffect(() => {
+    localStorage.setItem('calc-count', count)
+    localStorage.setItem('calc-squares', String(squares))
+    localStorage.setItem('calc-dilution', String(dilution))
+  }, [count, squares, dilution])
 
   // Derived concentration
   const concentration = useMemo(() => {

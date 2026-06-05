@@ -1,20 +1,22 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import SCENARIOS from '../data/simulator'
 function FastForwardOverlay({ label, time, onDone }) {
   const [progress, setProgress] = useState(0)
+  const onDoneRef = useRef(onDone)
+  useEffect(() => { onDoneRef.current = onDone }, [onDone])
 
   useEffect(() => {
     const start = Date.now()
-    const total = 2000 // animation duration
+    const total = 2000
     const tick = () => {
       const elapsed = Date.now() - start
       const p = Math.min(100, (elapsed / total) * 100)
       setProgress(p)
       if (p < 100) requestAnimationFrame(tick)
-      else setTimeout(onDone, 300)
+      else setTimeout(() => onDoneRef.current(), 300)
     }
     requestAnimationFrame(tick)
-  }, [onDone])
+  }, []) // stable — uses ref to avoid resetting animation
 
   return (
     <div className="absolute inset-0 z-20 bg-[#1d1d1f]/80 backdrop-blur-xl rounded-[20px] flex flex-col items-center justify-center gap-5">
@@ -95,7 +97,7 @@ export default function LabSimulator() {
     }, 200)
   }, [animating, step.fastForward, ffState, allChecked, decisionDone, canAdvance, scenario.steps.length])
 
-  const goPrev = () => {
+  const goPrev = useCallback(() => {
     if (isFirst || animating) return
     setAnimating(true)
     setTimeout(() => {
@@ -105,15 +107,17 @@ export default function LabSimulator() {
       setDecision(null)
       setAnimating(false)
     }, 200)
-  }
+  }, [isFirst, animating])
 
-  const reset = () => {
+  const reset = useCallback(() => {
     setCurrent(0)
     setChecked({})
     setFFState(null)
     setDecision(null)
     setAnimating(false)
-  }
+  }, [])
+
+  const handleFFDone = useCallback(() => setFFState('done'), [])
 
   const toggleCheck = (id) => setChecked((p) => ({ ...p, [id]: !p[id] }))
 
@@ -151,7 +155,7 @@ export default function LabSimulator() {
       {/* ======== STEPPER ======== */}
       <div className="mb-8 flex items-center">
         {scenario.steps.map((s, i) => (
-          <div key={i} className="flex items-center flex-1 last:flex-[0]">
+          <div key={s.title} className="flex items-center flex-1 last:flex-[0]">
             <div className="flex flex-col items-center">
               <div
                 className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-[14px] sm:text-xs font-bold transition-all duration-300 border-2 flex-shrink-0 ${
@@ -332,7 +336,7 @@ export default function LabSimulator() {
             <FastForwardOverlay
               label={ffState.label}
               time={ffState.time}
-              onDone={() => setFFState('done')}
+              onDone={handleFFDone}
             />
           )}
         </div>
