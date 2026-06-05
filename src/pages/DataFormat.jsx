@@ -210,10 +210,16 @@ export default function DataFormat() {
           <div className="apple-card p-5">
             <div className="flex items-center justify-between mb-3">
               <h3 className="font-semibold text-[16px] text-[#1d1d1f] dark:text-white">📋 原始数据</h3>
-              <button onClick={loadExample}
-                className="text-[13px] text-[#0071e3] hover:underline cursor-pointer font-medium">
-                加载示例
-              </button>
+              <div className="flex items-center gap-3">
+                <button onClick={loadExample}
+                  className="text-[13px] text-[#0071e3] hover:underline cursor-pointer font-medium">
+                  加载示例
+                </button>
+                <button onClick={() => { setRawData(''); setBlankWells(''); setControlWells('') }}
+                  className="text-[13px] text-[#ff3b30] hover:underline cursor-pointer font-medium">
+                  一键清除
+                </button>
+              </div>
             </div>
             <textarea value={rawData} onChange={(e) => setRawData(e.target.value)}
               placeholder="从酶标仪复制 OD 值粘贴到这里&#10;支持 Tab / 逗号 / 分号分隔&#10;每行 = 一排孔，每列 = 一个孔"

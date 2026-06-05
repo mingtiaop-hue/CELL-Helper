@@ -21,7 +21,13 @@ export default function PlateLayout() {
   const [paint, setPaint] = useState('sample')
   const [isDrawing, setIsDrawing] = useState(false)
   const gridRef = useRef(null)
+  const gridScrollRef = useRef(null)
   const lastCell = useRef(null)
+
+  const scrollGrid = (dir) => {
+    const el = gridScrollRef.current
+    if (el) el.scrollBy({ left: dir * 250, behavior: 'smooth' })
+  }
 
   // Mouse/touch painting
   const paintCell = useCallback((r, c) => {
@@ -141,10 +147,12 @@ export default function PlateLayout() {
         </button>
       </div>
 
-      {/* Grid */}
-      <div className="overflow-x-auto pb-4 -mx-4 px-4">
-        <div ref={gridRef} className="inline-block min-w-[700px] w-full bg-white dark:bg-[#1c1c1e] rounded-2xl p-4 sm:p-6 apple-card select-none"
-          style={{ touchAction: 'none' }}>
+      {/* Grid with horizontal scroll for mobile */}
+      <div className="relative">
+        <div className="overflow-x-auto pb-2 -mx-4 px-4 scroll-smooth" ref={(el) => { gridScrollRef.current = el }}
+          style={{ WebkitOverflowScrolling: 'touch' }}>
+          <div ref={gridRef} className="inline-block min-w-[700px] w-full bg-white dark:bg-[#1c1c1e] rounded-2xl p-4 sm:p-6 apple-card select-none"
+            style={{ touchAction: 'none' }}>
           {/* Column numbers */}
           <div className="flex mb-1 ml-8">
             {COLS.map((c) => (
@@ -173,6 +181,22 @@ export default function PlateLayout() {
               </div>
             ))}
           </div>
+        </div>
+        </div>
+        {/* Mobile scroll arrows */}
+        <div className="flex justify-between mt-2 sm:hidden">
+          <button onClick={() => scrollGrid(-1)}
+            className="w-10 h-10 rounded-xl bg-white dark:bg-[#2c2c2e] shadow-md ring-1 ring-black/[0.06] dark:ring-white/[0.08] flex items-center justify-center cursor-pointer active:scale-95 transition-all">
+            <svg className="w-5 h-5 text-[#1d1d1f] dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button onClick={() => scrollGrid(1)}
+            className="w-10 h-10 rounded-xl bg-white dark:bg-[#2c2c2e] shadow-md ring-1 ring-black/[0.06] dark:ring-white/[0.08] flex items-center justify-center cursor-pointer active:scale-95 transition-all">
+            <svg className="w-5 h-5 text-[#1d1d1f] dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       </div>
 
