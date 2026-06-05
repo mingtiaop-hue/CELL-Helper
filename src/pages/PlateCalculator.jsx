@@ -1,5 +1,5 @@
+import { useState, useMemo, useEffect } from 'react'
 import { DENSITY_CHIPS, PLATES } from '../data/calculator'
-import { useState, useMemo } from 'react'
 
 /* ================================================================
    STEP 1 — HEMOCYTOMETER
