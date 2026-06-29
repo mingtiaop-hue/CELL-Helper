@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>组会排班</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: #f0f4f8; color: #2d3748; min-height: 100vh;
+    display: flex; justify-content: center; align-items: flex-start;
+    padding: 16px;
+  }
+  .container { max-width: 560px; width: 100%; margin-top: 20px; }
+
+  /* Header */
+  .header {
+    text-align: center; margin-bottom: 20px;
+  }
+  .header h1 { font-size: 28px; font-weight: 800; color: #1a365d; margin-bottom: 4px; }
+  .header .date { font-size: 14px; color: #718096; }
+
+  /* Week card */
+  .week-card {
+    background: #fff; border-radius: 16px; padding: 24px 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 16px;
+    text-align: center;
+  }
+  .week-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .week-nav button {
+    width: 40px; height: 40px; border-radius: 50%; border: 2px solid #e2e8f0;
+    background: #fff; font-size: 18px; cursor: pointer; color: #4a5568;
+    transition: all 0.2s;
+  }
+  .week-nav button:hover { border-color: #3182ce; color: #3182ce; }
+  .week-nav button:active { background: #ebf8ff; }
+  .week-label {
+    font-size: 16px; font-weight: 700; color: #2d3748;
+  }
+  .week-label span { display: block; font-size: 13px; font-weight: 400; color: #a0aec0; margin-top: 2px; }
+
+  /* Two cards */
+  .cards { display: flex; gap: 12px; }
+  .card {
+    flex: 1; border-radius: 12px; padding: 20px 16px; text-align: center;
+  }
+  .card-data { background: linear-gradient(135deg, #ebf4ff 0%, #dbeafe 100%); }
+  .card-lit { background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); }
+
+  .card .icon { font-size: 32px; margin-bottom: 8px; }
+  .card .label { font-size: 12px; color: #718096; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+  .card .name {
+    font-size: 20px; font-weight: 800; color: #1a202c; line-height: 1.5;
+  }
+  .card-data .name { color: #2b6cb0; }
+  .card-lit .name { color: #6b46c1; }
+
+  /* Jump to today */
+  .today-btn {
+    display: block; margin: 12px auto 0; padding: 8px 20px;
+    border-radius: 20px; border: none; background: #edf2f7; color: #4a5568;
+    font-size: 13px; cursor: pointer; font-weight: 600;
+    transition: all 0.2s;
+  }
+  .today-btn:hover { background: #e2e8f0; }
+
+  /* Full schedule */
+  .schedule {
+    background: #fff; border-radius: 16px; padding: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .schedule h2 { font-size: 16px; font-weight: 700; color: #1a365d; margin-bottom: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; padding: 10px 8px; border-bottom: 2px solid #e2e8f0; color: #718096; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }
+  td { padding: 10px 8px; border-bottom: 1px solid #edf2f7; }
+  tr.current-week { background: #ebf8ff; }
+  tr.current-week td:first-child { font-weight: 700; }
+  td:first-child { white-space: nowrap; color: #4a5568; }
+  td:nth-child(2) { color: #2b6cb0; font-weight: 600; }
+  td:nth-child(3) { color: #6b46c1; font-weight: 600; }
+
+  /* Footer */
+  .footer { text-align: center; margin-top: 20px; padding: 16px; color: #a0aec0; font-size: 12px; }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    .cards { flex-direction: column; }
+    .header h1 { font-size: 24px; }
+    .card .name { font-size: 18px; }
+    .container { margin-top: 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>📋 组会排班</h1>
+    <div class="date">每周四 ·  人 · 数据×2 + 文献×2</div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-nav">
+      <button onclick="changeWeek(-1)" title="上周">◀</button>
+      <div class="week-label" id="weekLabel">
+        第 <span id="weekNum">1</span> 周
+        <span id="weekDate">7月2日 周四</span>
+      </div>
+      <button onclick="changeWeek(1)" title="下周">▶</button>
+    </div>
+
+    <div class="cards">
+      <div class="card card-data">
+        <div class="icon">📊</div>
+        <div class="label">数据汇报</div>
+        <div class="name" id="dataNames">—</div>
+      </div>
+      <div class="card card-lit">
+        <div class="icon">📚</div>
+        <div class="label">文献汇报</div>
+        <div class="name" id="litNames">—</div>
+      </div>
+    </div>
+
+    <button class="today-btn" onclick="goToday()">📍 回到本周</button>
+  </div>
+
+  <div class="schedule">
+    <h2>📅 完整排班表</h2>
+    <table>
+      <thead>
+        <tr><th>日期</th><th>数据汇报</th><th>文献汇报</th></tr>
+      </thead>
+      <tbody id="scheduleBody"></tbody>
+    </table>
+  </div>
+
+  <div class="footer">轮转自动生成 · 公平排列</div>
+</div>
+
+<script>
+// ── 配置 ──────────────────────────────────────
+// 数据汇报专属队列（每次取连续 2 人，循环）
+const DATA_QUEUE = ['彭越程','居益','郑泽泰','陈治羽','许媛媛','罗蔚'];
+// 文献汇报专属队列
+const LIT_QUEUE  = ['彭越程','许媛媛','郑泽泰','罗蔚','居益','陈治羽'];
+
+const N = DATA_QUEUE.length; // 6（吴德红近四周不参与）
+const START_THURSDAY = new Date('2026-07-02'); // 基准周四（本周）
+const MS_PER_WEEK = 7 * 24 * 60 * 60 * 1000;
+
+let displayWeekOffset = 0;
+
+function getCurrentWeekIndex() {
+  // 计算"今天所在周的周四"与基准周四之间差几周
+  const now = new Date();
+  const dayOfWeek = now.getDay(); // 0=Sun, 4=Thu
+  const daysToThu = (4 - dayOfWeek + 7) % 7; // 距离本周四还有几天
+  const thisThu = new Date(now);
+  thisThu.setDate(now.getDate() + daysToThu);
+  thisThu.setHours(0,0,0,0);
+  const diff = thisThu.getTime() - START_THURSDAY.getTime();
+  return Math.round(diff / MS_PER_WEEK);
+}
+
+function getThursday(weekIndex) {
+  const d = new Date(START_THURSDAY);
+  d.setDate(d.getDate() + weekIndex * 7);
+  return d;
+}
+
+function formatDate(d) {
+  return (d.getMonth()+1) + '月' + d.getDate() + '日';
+}
+
+// 从队列中取 weekIndex 对应的 2 人
+// 本周 (weekIndex=0): 数据起始位=4(许媛媛), 文献起始位=0
+function getPair(queue, weekIndex, offset) {
+  const start = ((weekIndex * 2 + offset) % N + N) % N;
+  return [queue[start], queue[(start + 1) % N]];
+}
+
+function render() {
+  const currentWeek = getCurrentWeekIndex();
+  const weekIndex = currentWeek + displayWeekOffset;
+  const thursday = getThursday(weekIndex);
+
+  document.getElementById('weekNum').textContent = weekIndex + 1;
+  document.getElementById('weekDate').textContent = formatDate(thursday) + ' 周四';
+
+  // 本周卡片
+  const dp = getPair(DATA_QUEUE, weekIndex, 4);
+  const lp = getPair(LIT_QUEUE, weekIndex, 0);
+  document.getElementById('dataNames').textContent = dp[0] + '\n' + dp[1];
+  document.getElementById('litNames').textContent = lp[0] + '\n' + lp[1];
+
+  // 完整表格
+  const tbody = document.getElementById('scheduleBody');
+  let html = '';
+  for (let w = currentWeek - 2; w <= currentWeek + 6; w++) {
+    const thu = getThursday(w);
+    const d = getPair(DATA_QUEUE, w, 4);
+    const l = getPair(LIT_QUEUE, w, 0);
+    const cls = (w === currentWeek) ? ' class="current-week"' : '';
+    const marker = (w === currentWeek) ? ' 👈' : '';
+    html += `<tr${cls}>
+      <td>${formatDate(thu)}${marker}</td>
+      <td>${d[0]}<br>${d[1]}</td>
+      <td>${l[0]}<br>${l[1]}</td>
+    </tr>`;
+  }
+  tbody.innerHTML = html;
+}
+
+function changeWeek(delta) { displayWeekOffset += delta; render(); }
+function goToday() { displayWeekOffset = 0; render(); }
+
+render();
+</script>
+</body>
+</html>
