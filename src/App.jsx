@@ -9,6 +9,7 @@ import UnitConverter from './pages/UnitConverter'
 import Home from './pages/Home'
 import PlateLayout from './pages/PlateLayout'
 import DataFormat from './pages/DataFormat'
+import MeetingSchedule from './pages/MeetingSchedule'
 import BackToTop from './components/BackToTop'
 import SopBasics from './pages/sop/SopBasics'
 import SopRedLines from './pages/sop/SopRedLines'
@@ -71,6 +72,7 @@ function AppShell() {
     { path: '/plate-calculator', label: t.nav.plateCalc,    icon: '🔬' },
     { path: '/plate-layout',    label: t.nav.plateLayout,   icon: '🎨' },
     { path: '/data-format',     label: t.nav.dataFormat,    icon: '📊' },
+    { path: '/meeting-schedule', label: t.nav.meetingSchedule, icon: '📅' },
     { path: '/lab-simulator',   label: t.nav.labSim,        icon: '🎮' },
   ]
 
@@ -234,6 +236,7 @@ function AppShell() {
             <Route path="/unit-converter" element={<UnitConverter />} />
             <Route path="/plate-layout" element={<PlateLayout />} />
             <Route path="/data-format" element={<DataFormat />} />
+            <Route path="/meeting-schedule" element={<MeetingSchedule />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
